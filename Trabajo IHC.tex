@@ -1,0 +1,115 @@
+\documentclass[11pt]{beamer}
+\usepackage{listings} % Include the listings-package
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb, amsfonts, latexsym, cancel}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{subfigure}
+\usepackage{hyperref}
+%\usepackage{authblk}
+\usepackage{blindtext}
+\usepackage{booktabs} % Allows the use of \toprule, 
+\usepackage{filecontents}
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings}
+%\usepackage{listings, xcolor}
+\lstset{
+tabsize = 2, %% set tab space width
+showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+numbers = left, %% display line numbers on the left
+commentstyle = \color{green}, %% set comment color
+keywordstyle = \color{blue}, %% set keyword color
+stringstyle = \color{red}, %% set string color
+rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+basicstyle = \small \ttfamily , %% set listing font and size
+breaklines = true, %% enable line breaking
+numberstyle = \tiny,
+}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\definecolor{urlColor}{rgb}{0.06, 0.3, 0.57}
+\definecolor{linkColor}{rgb}{0.57, 0.0, 0.04}
+\definecolor{fileColor}{rgb}{0.0, 0.26, 0.26}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkColor,
+    filecolor=fileColor,      
+    urlcolor=urlColor,
+}
+\urlstyle{same}
+\setbeamercovered{transparent}
+%\usetheme{Boadilla}
+\usetheme{CambridgeUS}
+%\usetheme{Berkeley}
+%\usetheme{Warsaw}
+%\usetheme{Madrid}
+
+\title[Introducción]{\bf\Huge Pautas de diseño de la interfaz de usuario}
+\subtitle{Interacción Humano Computador}
+
+\author[rescobedoq]
+{
+	Richart Smith Escobedo Quispe \inst{1}
+}
+\institute[UNSA]
+{
+\inst{1}% 
+System Engineering School\\
+System Engineering and Informatic Department\\
+Production and Services Faculty\\
+San Agustin National University of Arequipa
+}
+
+\date[2020-09-09]{\scriptsize{2020-09-09}}
+%\logo{\includegraphics[width=3.0cm]{logo_unsa.jpg}}
+\titlegraphic{\includegraphics[width=1.0cm]{logo_unsa.jpg}}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Content}
+\tableofcontents
+\end{frame}
+
+\section{Pautas de diseño de la interfaz de usuario}
+\begin{frame}
+
+\frametitle{Pautas de diseño de la interfaz de usuario}
+\begin{itemize}
+\item Sistemas informáticos interactivos
+\item Pautas de diseño de la interfaz de usuario. (Reglas de diseño):
+\item Cheriton (1976) - Tiempo compartido.
+\item Norman (1983) - Cognición humana.
+\item {\bf Smith y Mosier (1986).}
+\item Shneiderman (1987) - Ocho reglas de oro.
+\item Brown (1988).
+\item Nielsen y Molich (1990) - Evaluación heurística.
+\item Nielsen y Mack (1994).
+\item Stone et al. (2005).
+\item Koyani y col. (2006).
+\item Johnson (2007).
+\item Shneiderman y Plaisant (2009).
+\item Microsoft, Apple Computer y Oracle - 2009, 2009, 2001
+\end{itemize}
+\end{frame}
+
+\section{References}
+%References frame
+\begin{frame}
+\frametitle{References}
+\begin{itemize}
+\item Jhonson J. (2014). Designing with the Mind in mind. 2nd. edition.
+\end{itemize}
+\end{frame}
+
+\end{document}
