@@ -1,6 +1,6 @@
-# Título del Proyecto
+# Grupo 10
 
-_Acá va un párrafo que describa lo que es el proyecto_
+_Este es un repositorio para el grupo 10 del curso de IHC_
 
 ## Comenzando 🚀
 
