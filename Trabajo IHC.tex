@@ -10,13 +10,17 @@
 \usepackage{epstopdf}
 \usepackage{subfigure}
 \usepackage{hyperref}
+\usepackage{indentfirst}
 %\usepackage{authblk}
 \usepackage{blindtext}
 \usepackage{booktabs} % Allows the use of \toprule, 
 \usepackage{filecontents}
 \usepackage{courier} %% Sets font for listing as Courier.
 \usepackage{listings}
-%\usepackage{listings, xcolor}
+\usepackage{ragged2e}
+\usepackage{listings, xcolor}
+%\usepackage{parskip}
+%\usepackage[margin=10cm]{geometry}
 \lstset{
 tabsize = 2, %% set tab space width
 showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
@@ -53,20 +57,26 @@ numberstyle = \tiny,
 \title[Introducción]{\bf\Huge Pautas de diseño de la interfaz de usuario}
 \subtitle{Interacción Humano Computador}
 
-\author[rescobedoq]
+\author[ddiazti]
 {
-	Richart Smith Escobedo Quispe \inst{1}
+	Deyson Victor Diaz Ticona \inst{1}
+	Kevin Yunior Ccorimanya Paucar \inst{2}
+	Denilson Flores Valdivia \inst{3}
+	Marco Antonio Ponce de Leon \inst{4}
 }
 \institute[UNSA]
 {
-\inst{1}% 
+\inst{1}
+\inst{2}
+\inst{3}
+\inst{4}
 System Engineering School\\
 System Engineering and Informatic Department\\
 Production and Services Faculty\\
 San Agustin National University of Arequipa
 }
 
-\date[2020-09-09]{\scriptsize{2020-09-09}}
+\date[2020-09-15]{\scriptsize{2020-09-15}}
 %\logo{\includegraphics[width=3.0cm]{logo_unsa.jpg}}
 \titlegraphic{\includegraphics[width=1.0cm]{logo_unsa.jpg}}
 
@@ -90,16 +100,278 @@ San Agustin National University of Arequipa
 \item Pautas de diseño de la interfaz de usuario. (Reglas de diseño):
 \item Cheriton (1976) - Tiempo compartido.
 \item Norman (1983) - Cognición humana.
-\item {\bf Smith y Mosier (1986).}
+\item Smith y Mosier (1986)
 \item Shneiderman (1987) - Ocho reglas de oro.
 \item Brown (1988).
 \item Nielsen y Molich (1990) - Evaluación heurística.
 \item Nielsen y Mack (1994).
 \item Stone et al. (2005).
 \item Koyani y col. (2006).
-\item Johnson (2007).
+\item {\bf Johnson (2007).}
 \item Shneiderman y Plaisant (2009).
 \item Microsoft, Apple Computer y Oracle - 2009, 2009, 2001
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item Análisis de Tareas
+    \par
+    \justify
+    \color{black}
+    Describir en detalle cómo analizar los objetivos y tareas de los usuarios. Por ahora es suficiente decir que un buen análisis de tareas responde a estas preguntas:
+    \begin{itemize}
+    \item ¿Qué objetivos quieren alcanzar los usuarios al utilizar la aplicación?
+    \item ¿Qué conjunto de tareas humanas pretende admitir la aplicación?
+    \item ¿Qué tareas son más importantes y cuáles son las menos importantes?
+    \item ¿Cuáles son los pasos de cada tarea?
+    \item ¿Cuáles son el resultado y el producto de cada tarea?
+    \item ¿De dónde proviene la información de cada tarea?
+    \item ¿Cómo se utiliza la información que resulta de cada tarea?
+    \item ¿Qué herramientas se utilizan para realizar cada tarea?
+    \item ¿Qué problemas tienen las personas para realizar cada tarea? ¿Qué tipo de errores son comunes? ¿Qué los causa? ¿Qué tan dañinos son los errores?
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item Análisis de Tareas
+    \par
+    \justify
+    \color{black}
+    Una vez que se responden estas preguntas (observando y / o entrevistando a las personas que hacen las tareas que la herramienta admitirá), el siguiente paso es no comenzar a dibujar posibles interfaces de usuario. El siguiente paso es diseñar un modelo conceptual para la herramienta que se centra en las tareas y objetivos de los usuarios (Johnson & Henderson, 2002). Después de haber diseñado un modelo conceptual centrado en tareas, tan simple como sea posible, y lo más consistente posible, puede diseñar una interfaz de usuario que minimiza el tiempo y la experiencia necesarios para utilizar la aplicación para convertirse en un proceso automático.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+A continuación, hablaremos un poco sobre los principios básicos de la interaccion Persona-ordenador.
+\begin{itemize}
+\color{red}
+\item Principio 1: Centrarse en los usuarios y sus tareas, no en la tecnología
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item Entender a los usuarios
+    \item Entender las tareas
+    \item Considere el contexto en el que funcionará el software
+    \end{itemize}
+    \par
+    Para un correcto cumplimiento de los objetivos, la tecnología toma un lugar secundario y se prioriza el entendimiento del usuario y la eficacia del sistema.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item Principio 2: Considere la función primero, la presentación después
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item Desarrollar un modelo conceptual que cumple de manera completa el objetivo del mismo.
+    \end{itemize}
+     \par
+    El cumplimiento de la tarea siempre será la prioridad.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item Principio 3: Conforme a la visión de la tarea de los usuarios
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item Lucha por la naturalidad
+	\item Utilice el vocabulario de los usuarios, no el suyo
+	\item Mantenga los componentes internos del programa dentro del programa
+	\item Encuentre el punto correcto sobre el equilibrio entre potencia y complejidad
+    \end{itemize}
+    \par
+    Para poder brindar algo optimo, el lenguaje a utilizar para los usuarios debe ser lo más simple posible, no resultar forzado para ellos, y debe ser sencilla y práctica.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item Principio 4: Diseño para el caso común
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item Hacer que los resultados comunes sean fáciles de lograr
+	\item Dos tipos de "comunes": "cuántos usuarios" y "con qué frecuencia"
+	\item Diseño para casos básicos; no te preocupes por los casos de "borde"
+    \end{itemize}
+    \par
+     Como ya se mencionó, la practicidad y el nivel de interacción deben ser simples y prácticos para el entendimiento e interacción del usuario.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item Principio 5: No complique la tarea de los usuarios
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item No les dé problemas adicionales a los usuarios
+	\item No hagas que los usuarios razonen por eliminación
+    \end{itemize}
+    \par
+    Para el usuario, debe ser sencillo interactuar con el sistema, por esa razón las tareas que se le proporciona deben ser claras y exactas, no interponer varias acciones o tareas que puedan confundir a los usuarios.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item Principio 6: Facilitar el aprendizaje
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item Piense "de afuera hacia adentro", no "de adentro hacia afuera"
+	\item Consistencia, consistencia, consistencia 
+	\item Proporcionar un entorno de bajo riesgo
+    \end{itemize}
+    \par
+    Para el que interacciona, las tareas asignadas deben ser simples, que no comprometan la funcionalidad del sistema.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item Principio 7: Entregue información, no solo datos
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item Diseñe las exhibiciones cuidadosamente; conseguir ayuda profesional
+	\item La pantalla pertenece al usuario 
+	\item Preservar la inercia de la pantalla 
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item Principio 8: Diseño para la capacidad de respuesta
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item Reconocer las acciones del usuario al instante 
+	\item Informar a los usuarios cuando el software está ocupado y cuando no 
+	\item Libera a los usuarios para que hagan otras cosas mientras esperan 
+	\item Animar el movimiento de forma suave y clara 
+	\item Permitir a los usuarios abortar operaciones prolongadas que no desean
+	\item Permitir a los usuarios estimar cuánto tiempo tomarán las operaciones
+	\item Trate de permitir que los usuarios establezcan su propio ritmo de trabajo
+    \end{itemize}
+    \par
+    Para el usuario, las acciones deben ser comprensibles, para esto, la información que se le brinda debe estar a un nivel simple de entendimiento, con una retroalimentación moderada, y poder darle la opción de cancelar y medir el proceso de trabajo.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item Principio 9: Pruébelo con los usuarios; entonces arréglalo
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item Los resultados de las pruebas pueden sorprender incluso a los         diseñadores experimentados 
+	\item Programe tiempo para corregir los problemas encontrados por las pruebas
+	\item Las pruebas tienen dos objetivos: informativos y sociales.
+	\item Hay pruebas para cada momento y propósito
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\color{red}
+\item ¿Cuánto tiempo le toma a nuestro cerebro…?
+\par
+\color{black}
+A continuación, se enumeran las duraciones medias perceptuales y algunas funciones cognitivas del cerebro que afectan nuestras percepciones del sistema sensitivo. Los tiempos se enumeran del más corto al más largo:
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item 0.001 segundos: La brecha de silencio más corta que podemos detectar en un sonido.
+    \item 0.002 segundos: Tiempo mínimo entre los picos de las neuronas auditivas, las más rápidas en el cerebro.
+    \item 0.005 segundos: El tiempo más corto en el que se puede mostrar un estímulo visual y que aún nos afecta, tal vez de forma inconsciente.
+    \item 0.01 segundos: Mínimo retraso notable en la tinta, como cuando alguien dibuja con un lápiz.
+    \item 0.02 segundos: Intervalo máximo para la fusión auditiva de pulsos de sonido sucesivos en un tono agudo.
+    \item 0.05 segundos: Intervalo máximo para la fusión visual de imágenes sucesivas.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\par
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item 0.08 segundos: Velocidad del reflejo de estremecimiento (respuesta motora involuntaria a un posible peligro).
+    \item  0.1 segundos: Lapso de tiempo entre un evento visual y nuestra percepción de él.
+    \item 0.1 segundos: Duración de la sacádica (movimiento involuntario del ojo), durante la cuál la visión es suprimida.
+    \item 0.14 segundos: Intervalo máximo entre eventos para la percepción de que un evento causó otro evento.
+    \item 0.15 segundos: Tiempo necesario para que el cerebro de un lector experto comprenda una palabra impresa.
+    \item 0.2 segundos: Tiempo de subitizar hasta cuatro o cinco elementos en nuestro campo visual. 
+    \item 0.25 segundos: Tiempo en el que se identifica (o sea, saber qué es) un objeto visto.
+    \item 0.3 segundos: Tiempo necesario para contar mentalmente cada elemento en una escena cuando hay más de cuatro elementos.
+    
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Johnson (2007)}
+\begin{itemize}
+\par
+    \par
+    \justify
+    \color{black}
+    \begin{itemize}
+    \item 0.5 segundos: "Parpadeo" de atención después del reconocimiento de un objeto.
+    \item 0.7 segundos: Tiempo de reacción visomotor (respuesta intencional a un evento inesperado).
+    \item Un segundo: Duración máxima del espacio silencioso entre los turnados en la conversación de persona a persona.
+    \item 6 - 30 segundos: Duración de la atención ininterrumpida a una sola tarea.
+    \item 1 - 5 minutos: Tiempo en el que se toman decisiones en casos de emergencia.
+    \item 1 - 10 días: Duración de la decisión de una compra importante.
+    \item 20 años: Tiempo en el que se escoge una carrera para toda la vida.
+
+    \end{itemize}
+    
 \end{itemize}
 \end{frame}
 
