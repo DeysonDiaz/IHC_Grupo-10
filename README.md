@@ -2,9 +2,7 @@
 
 _Este es un repositorio para el grupo 10 del curso de IHC_
 
-## Comenzando 🚀
+## Expocisiones 🎁
 
-_Johnson(2007)_
-```
-_Expocision HCI_
-
+* Johnson(2007)
+* J. Muñoz. Diseño de software interactivo educativo inclusivo - HCI 2020 
