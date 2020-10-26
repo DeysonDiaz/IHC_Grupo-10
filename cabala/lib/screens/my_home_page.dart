@@ -1,34 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:cabala/screens/results.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:intl/intl.dart';
 
 class MyHomePage extends StatefulWidget {
   _MyHomePage createState() => _MyHomePage();
 }
 
 class _MyHomePage extends State<MyHomePage> {
-  String namesValue, lastNamesValue;
-  int birthDayValue, birthMonthValue, birthYearValue;
-
-  FocusNode namesFocus,
-      lastNamesFocus,
-      birthDayFocus,
-      birthMonthFocus,
-      birthYearFocus;
+  String fullNameValue;
+  DateTime birthdateValue;
 
   final formKey = GlobalKey<FormState>();
 
-  void initState() {
-    super.initState();
-    namesFocus = FocusNode();
-    lastNamesFocus = FocusNode();
-    birthDayFocus = FocusNode();
-    birthMonthFocus = FocusNode();
-    birthYearFocus = FocusNode();
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Cálculo numerológico')),
+        appBar: AppBar(title: Center(child: Text('Cabacalc'))),
         body: Container(
             alignment: Alignment.center,
             margin: EdgeInsets.all(15),
@@ -36,104 +23,56 @@ class _MyHomePage extends State<MyHomePage> {
                 child: Form(
                     key: formKey,
                     child: ListView(children: <Widget>[
-                      Image.asset(
-                        'assets/images/numerologia.jpg',
-                        height: 225,
-                        width: 333,
-                      ),
                       Text(
-                        'Ingrese sus datos:',
+                        'Ingrese sus datos',
                         style: TextStyle(fontSize: 16),
                         textAlign: TextAlign.center,
                       ),
-                      TextFormField(
-                        focusNode: namesFocus,
-                        decoration: InputDecoration(labelText: 'Nombre(s):'),
-                        onSaved: (value) {
-                          namesValue = value;
-                        },
-                        validator: (value) {
-                          if (value.trim().isEmpty) return 'Rellene este campo';
-                          return null;
-                        },
-                        onEditingComplete: () {
-                          FocusScope.of(context).requestFocus(lastNamesFocus);
-                        },
+                      Image.asset(
+                        'assets/images/img1.jpg',
+                        height: 225,
                       ),
                       TextFormField(
-                        focusNode: lastNamesFocus,
-                        decoration: InputDecoration(labelText: 'Apellido(s):'),
-                        onSaved: (value) {
-                          lastNamesValue = value;
-                        },
-                        validator: (value) {
-                          if (value.trim().isEmpty) return 'Rellene este campo';
-                          return null;
-                        },
-                        onEditingComplete: () {
-                          FocusScope.of(context).requestFocus(birthDayFocus);
-                        },
-                      ),
-                      TextFormField(
-                        focusNode: birthDayFocus,
                         decoration:
-                            InputDecoration(labelText: 'Día de nacimiento:'),
-                        keyboardType: TextInputType.number,
+                            InputDecoration(labelText: 'Nombre completo:'),
                         onSaved: (value) {
-                          birthDayValue = int.parse(value);
+                          fullNameValue = value;
                         },
                         validator: (value) {
                           if (value.trim().isEmpty) return 'Rellene este campo';
-                          int day = int.parse(value, onError: (e) => null);
-                          if (day == null || day < 1 || 31 < day)
-                            return 'Dato inválido';
                           return null;
                         },
-                        onEditingComplete: () {
-                          FocusScope.of(context).requestFocus(birthMonthFocus);
-                        },
                       ),
-                      TextFormField(
-                        focusNode: birthMonthFocus,
+                      DateTimeField(
                         decoration:
-                            InputDecoration(labelText: 'Mes de nacimiento:'),
-                        keyboardType: TextInputType.number,
+                            InputDecoration(labelText: 'Fecha de nacimiento:'),
                         onSaved: (value) {
-                          birthMonthValue = int.parse(value);
+                          birthdateValue = value;
                         },
                         validator: (value) {
-                          if (value.trim().isEmpty) return 'Rellene este campo';
-                          int month = int.parse(value, onError: (e) => null);
-                          if (month == null || month < 1 || 12 < month)
-                            return 'Dato inválido';
+                          if (value == null) return 'Rellene este campo';
                           return null;
                         },
-                        onEditingComplete: () {
-                          FocusScope.of(context).requestFocus(birthYearFocus);
+                        format: DateFormat("dd-MM-yyyy"),
+                        onShowPicker:
+                            (BuildContext context, DateTime currentValue) {
+                          return showDatePicker(
+                            context: context,
+                            firstDate: DateTime(1900),
+                            initialDate: DateTime.now(),
+                            lastDate: DateTime.now(),
+                          );
                         },
                       ),
-                      TextFormField(
-                        focusNode: birthYearFocus,
-                        decoration:
-                            InputDecoration(labelText: 'Año de nacimiento:'),
-                        keyboardType: TextInputType.number,
-                        onSaved: (value) {
-                          birthYearValue = int.parse(value);
-                        },
-                        validator: (value) {
-                          if (value.trim().isEmpty) return 'Rellene este campo';
-                          int year = int.parse(value, onError: (e) => null);
-                          if (year == null || year < 1 || 2020 < year)
-                            return 'Dato inválido';
-                          return null;
-                        },
-                      ),
-                      SizedBox(height: 10),
-                      OutlineButton(
-                          child: Text('Calcular estudio'),
-                          onPressed: () {
-                            showResultsPage(context);
-                          })
+                      SizedBox(height: 15),
+                      Container(
+                        alignment: Alignment.center,
+                        child: OutlineButton(
+                            child: Text('Calcular estudio'),
+                            onPressed: () {
+                              showResultsPage(context);
+                            }),
+                      )
                     ])))));
   }
 
@@ -141,21 +80,10 @@ class _MyHomePage extends State<MyHomePage> {
     if (formKey.currentState.validate()) {
       formKey.currentState.save();
       Navigator.of(context).pushNamed('/results',
-          arguments: PersonData(
-              names: namesValue,
-              lastNames: lastNamesValue,
-              birthDay: birthDayValue,
-              birthMonth: birthMonthValue,
-              birthYear: birthYearValue));
+          arguments: Person(
+            fullName: fullNameValue,
+            birthdate: birthdateValue,
+          ));
     }
-  }
-
-  void dispose() {
-    super.dispose();
-    namesFocus.dispose();
-    lastNamesFocus.dispose();
-    birthDayFocus.dispose();
-    birthMonthFocus.dispose();
-    birthYearFocus.dispose();
   }
 }

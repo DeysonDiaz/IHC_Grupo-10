@@ -1,91 +1,337 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ResultsPage extends StatelessWidget {
   Widget build(BuildContext context) {
-    final DateTime now = new DateTime.now();
-    final PersonData personData = ModalRoute.of(context).settings.arguments;
+    DateTime now = DateTime.now();
+    final Person person = ModalRoute.of(context).settings.arguments;
 
-    //Se me fue el inglés
-    final int urgenciaInterior = _urgenciaInterior(personData);
-    final int tonicaFundamental = _tonicaFundamental(
-        personData.names + personData.lastNames, urgenciaInterior);
-    final int tonicaDelDia = _tonicaDelDia(now, tonicaFundamental);
-    final int acontecimientoDelDia = _acontecimientoDelDia(now, tonicaDelDia);
-    final int cabalaDelDoceMeses =
-        _cabalaDelDoceMeses(personData.birthYear, now.year);
+    final int innerUrgencyValue = person.innerUrgency();
+    final int fundamentalTonicValue = person.fundamentalTonic();
+    final int tonicOfTodayValue = person.tonicOfTheDay(now);
+    final int nowEventValue = person.eventOfTheDay(now);
+    final Map<int, int> yearCabalaValue = person.yearCabala(5);
 
     return Scaffold(
-        appBar: AppBar(title: Text('Resultados')),
-        body: Center(
-            child: ListView(
-          children: [
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(top: 5),
-              child: Text(personData.toString(), textAlign: TextAlign.center),
+        appBar: AppBar(title: Text('           Resultados')),
+        body: ListView(
+          padding: EdgeInsets.only(top: 20),
+          children: <Widget>[
+            Text(person.toString(),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center),
+            SizedBox(height: 10),
+            Image.asset(
+              'assets/images/img2.jpeg',
+              height: 200,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Image.asset(
-                'assets/images/numerologia.jpg',
-                height: 100,
-              ),
+            ListTile(
+              title: Text('Urgencia interior: $innerUrgencyValue'),
+              leading: Icon(Icons.person),
+              onTap: () => showInnerUrgencyInfo(context, innerUrgencyValue),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text('Urgencia interior: $urgenciaInterior',
-                  textAlign: TextAlign.center),
+            Image.asset(
+              'assets/images/img3.jpeg',
+              height: 170,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Image.asset(
-                'assets/images/numerologia.jpg',
-                height: 100,
-              ),
+            ListTile(
+              title: Text('Tónica fundamental: $fundamentalTonicValue'),
+              leading: Icon(Icons.handyman),
+              onTap: () =>
+                  showFundamentalTonicInfo(context, fundamentalTonicValue),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text('Tónica fundamental: $tonicaFundamental',
-                  textAlign: TextAlign.center),
+            Image.asset(
+              'assets/images/img4.jpeg',
+              height: 190,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Image.asset(
-                'assets/images/numerologia.jpg',
-                height: 100,
-              ),
+            ListTile(
+              title: Text('Tónica de hoy: $tonicOfTodayValue'),
+              leading: Icon(Icons.wb_sunny),
+              onTap: () => showTonicOfTodayInfo(context, tonicOfTodayValue),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text('Tónica del día: $tonicaDelDia',
-                  textAlign: TextAlign.center),
+            Image.asset(
+              'assets/images/img5.jpeg',
+              height: 170,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Image.asset(
-                'assets/images/numerologia.jpg',
-                height: 100,
-              ),
+            ListTile(
+                title: Text('Acontecimiento de este momento: $nowEventValue'),
+                leading: Icon(Icons.timer),
+                onTap: () => showNowEventInfo(context, nowEventValue)),
+            Image.asset(
+              'assets/images/img6.jpeg',
+              height: 225,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text('Acontecimiento del día: $acontecimientoDelDia',
-                  textAlign: TextAlign.center),
+            ListTile(
+              title: Text('Ver cábala del año y números regentes'),
+              leading: Icon(Icons.calendar_today),
+              onTap: () => showYearCabalaInfo(context, yearCabalaValue),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Image.asset(
-                'assets/images/numerologia.jpg',
-                height: 100,
-              ),
+            Image.asset(
+              'assets/images/img7.jpg',
+              height: 150,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text('Cábala del año: Arcano $cabalaDelDoceMeses',
-                  textAlign: TextAlign.center),
-            ),
+            ListTile(
+              title: Text('Ver información sobre los números'),
+              leading: Icon(Icons.info),
+              onTap: () => showNumbersInfo(context),
+            )
           ],
-        )));
+        ));
+  }
+
+  void showInnerUrgencyInfo(BuildContext context, int innerUrgency) {
+    final List<String> innerUrgencyData = [
+      'emprendedora, original, con voluntad.',
+      'sociable, con imaginación.',
+      'creativa, con arte y belleza.',
+      'firme, sólida.',
+      'razonativa, con rigor, propensa al aprendizaje.',
+      'cariñosa, indecisa.',
+      'tendiente a luchar.',
+      'paciente.',
+      'generosa, con ideas geniales, independiente.',
+    ];
+    final String dialogContent =
+        'La urgencia interior es como tendemos a ser, como un signo zodiacal, pero numérico. Tu urgencia interior es $innerUrgency.\n' +
+            'Este número hace a la persona ${innerUrgencyData[innerUrgency - 1]}';
+    showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Urgencia interior'),
+            content: Text(dialogContent),
+            actions: [
+              FlatButton(
+                child: Text(
+                  "OK",
+                  style: TextStyle(color: Colors.blue),
+                ),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
+  }
+
+  void showFundamentalTonicInfo(BuildContext context, int fundamentalTonic) {
+    final List<String> fundamentalTonicData = [
+      'trabajar con mucha voluntad, con ideas originales, ser emprendedor.',
+      'aprender a asociarse con los demás, escuchar opiniones contrarias sin enojarse, desarrollar la imaginación creadora.',
+      'trabajar con arte y belleza en todo lo que haga, en el vestir, en el hablar.',
+      'poner las bases firmes en sus proyectos y trabajos.',
+      'ver el pro y el contra de todo lo que se proponga.',
+      'ser decisivo y poner cariño a lo que haga.',
+      'poner mucho empeño en todo lo que haga.',
+      'ser muy paciente, saber esperar.',
+      'ser generosa y genial, de preferencia trabajar independientemente.',
+    ];
+    final String dialogContent =
+        'La tónica fundamental es en lo que tenemos que trabajar para triunfar en la vida. Tu tónica fundamental es $fundamentalTonic.\n' +
+            'Este número indica que la persona tiene que ${fundamentalTonicData[fundamentalTonic - 1]}';
+    showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Tónica fundamental'),
+            content: Text(dialogContent),
+            actions: [
+              FlatButton(
+                child: Text(
+                  "OK",
+                  style: TextStyle(color: Colors.blue),
+                ),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
+  }
+
+  void showTonicOfTodayInfo(BuildContext context, int tonicOfToday) {
+    final List<String> tonicOfTodayData = [
+      'trabajar con mucha voluntad, con ideas originales, ser emprendedor.',
+      'aprender a asociarse con los demás, escuchar opiniones contrarias sin enojarse, desarrollar la imaginación creadora.',
+      'trabajar con arte y belleza en todo lo que haga, en el vestir, en el hablar.',
+      'poner las bases firmes en sus proyectos y trabajos.',
+      'ser decisivo y poner cariño a lo que haga.',
+      'ver el pro y el contra de todo lo que se proponga.',
+      'poner mucho empeño en todo lo que haga.',
+      'ser muy paciente, saber esperar.',
+      'ser generosa y genial, de preferencia trabajar independientemente.',
+    ];
+    final String dialogContent = 'Tu número para hoy es $tonicOfToday, ' +
+        'lo que indica que para tener más probabilidades de éxito en lo que te propongas este día, deberías: ${tonicOfTodayData[tonicOfToday - 1]}';
+    showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Regencia, tónica de hoy'),
+            content: Text(dialogContent),
+            actions: [
+              FlatButton(
+                child: Text(
+                  "OK",
+                  style: TextStyle(color: Colors.blue),
+                ),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
+  }
+
+  void showNowEventInfo(BuildContext context, int nowEvent) {
+    String dialogContent =
+        'A esta hora de este mismo día, lo mejor es regirse bajo el número $nowEvent para realizar con éxito lo que deseas ahora.';
+    showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Acontecimiento de este momento'),
+            content: Text(dialogContent),
+            actions: [
+              FlatButton(
+                child: Text(
+                  "OK",
+                  style: TextStyle(color: Colors.blue),
+                ),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
+  }
+
+  void showYearCabalaInfo(BuildContext context, Map<int, int> yearsCabala) {
+    String dialogContent =
+        'Durante la vida tenemos años espaciales relacionados con la ley de causa y efecto (Karma), ' +
+            'dependerá de uno si el número nos favorezca o esté en contra de uno, por sus actos.';
+    yearsCabala.forEach((key, value) {
+      dialogContent += '\nAño: $key, número regente: $value';
+    });
+    showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Cábala del año'),
+            content: Text(dialogContent),
+            actions: [
+              FlatButton(
+                child: Text(
+                  "OK",
+                  style: TextStyle(color: Colors.blue),
+                ),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
+  }
+
+  void showNumbersInfo(BuildContext context) {
+    final List<String> numbersInfoData = [
+      'Espada, voluntad, poder.',
+      'Ciencia oculta, favorable.',
+      'Producción material y espiritual.',
+      'Mando, progreso, éxito, misericordia.',
+      'El Karma, Marte, guerra.',
+      'Victoria, buena suerte.',
+      'Guerras, luchas, expiación, dolor, amargura.',
+      'Sufrimientos, pruebas, dolor.',
+      'Soledad, sufrimientos.',
+      'Buenos negocios, cambios.',
+      'Favorece la Ley, que no haya temor, Marte.',
+      'Pruebas y dolor, arcano A.Z.F. nos saca del dolor.',
+      'Transformaciones, indica cambio total.',
+      'Larga vida, estabilidad, no cambio.',
+      'Fracaso amoroso, anuncia peligros.',
+      'Castigo, caída terrible, evítese esta fecha.',
+      'Esperanza, espera.',
+      'Los enemigos ocultos saltan en cualquier momento, enfermedades, no negocios.',
+      'Éxitos, buena suerte, la Piedra Filosofal.',
+      'Cambios favorables, acabar con las debilidades.',
+      'Desmoralización total para el mal.',
+      'Triunfo, todo sale bien, poder, fuerza, buena suerte',
+    ];
+    showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Información sobre los números'),
+            content: ListView.builder(
+                itemCount: numbersInfoData.length,
+                itemBuilder: (BuildContext ctxt, int index) {
+                  return new Text(
+                      'Arcano ${index + 1}: ${numbersInfoData[index]}');
+                }),
+            actions: [
+              FlatButton(
+                child: Text(
+                  "OK",
+                  style: TextStyle(color: Colors.blue),
+                ),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
+  }
+}
+
+class Person {
+  String fullName;
+  DateTime birthdate;
+
+  Person({this.fullName, this.birthdate});
+
+  String getBirthdate() {
+    final DateFormat formatter = DateFormat('dd-MM-yyyy');
+    return formatter.format(birthdate);
+  }
+
+  int innerUrgency() {
+    return kabbalisticSum(kabbalisticSum(birthdate.day) +
+        kabbalisticSum(birthdate.month) +
+        kabbalisticSum(birthdate.year));
+  }
+
+  int fundamentalTonic() {
+    final int fullNameSize = fullName.replaceAll(' ', '').length;
+    return kabbalisticSum(kabbalisticSum(fullNameSize) + innerUrgency());
+  }
+
+  int tonicOfTheDay(DateTime date) {
+    final int kabbalisticSumDate = kabbalisticSum(kabbalisticSum(date.day) +
+        kabbalisticSum(date.month) +
+        kabbalisticSum(date.year));
+    return kabbalisticSum(fundamentalTonic() + kabbalisticSumDate);
+  }
+
+  int eventOfTheDay(DateTime date) {
+    //Trabajando con la hora actual.
+    int hour = date.hour % 12;
+    if (hour == 0) hour = 12;
+    return kabbalisticSum(hour + tonicOfTheDay(date));
+  }
+
+  Map<int, int> yearCabala(int numberOfYears) {
+    int currentYear = birthdate.year + sumOfDigits(birthdate.year);
+    Map<int, int> arcana = Map<int, int>();
+
+    for (int i = 0; i < numberOfYears; i++) {
+      arcana[currentYear] = kabbalisticSum(currentYear);
+      currentYear += sumOfDigits(currentYear);
+    }
+
+    return arcana;
   }
 
   int sumOfDigits(int number) {
@@ -104,65 +350,7 @@ class ResultsPage extends StatelessWidget {
     return number;
   }
 
-  int _urgenciaInterior(PersonData personData) {
-    return kabbalisticSum(kabbalisticSum(personData.birthDay) +
-        kabbalisticSum(personData.birthMonth) +
-        kabbalisticSum(personData.birthYear));
-  }
-
-  int _tonicaFundamental(String fullName, int urgenciaInterior) {
-    final String fullNameWhitoutSpaces = fullName.replaceAll(' ', '');
-    return kabbalisticSum(
-        kabbalisticSum(fullNameWhitoutSpaces.length) + urgenciaInterior);
-  }
-
-  int _tonicaDelDia(DateTime date, int tonicaFundamental) {
-    //Trabajando con el día actual.
-    final int kabbalisticSumNow = kabbalisticSum(kabbalisticSum(date.day) +
-        kabbalisticSum(date.month) +
-        kabbalisticSum(date.year));
-    return kabbalisticSum(tonicaFundamental + kabbalisticSumNow);
-  }
-
-  int _acontecimientoDelDia(DateTime date, int tonicaDelDia) {
-    //Trabajando con la hora actual.
-    int hour = date.hour % 12;
-    if (hour == 0) hour = 12;
-    return kabbalisticSum(hour + tonicaDelDia);
-  }
-
-  // ignore: missing_return
-  int _cabalaDelDoceMeses(int year, int yearActuall) {
-    //Solo se está calculando una vez
-    while (year < yearActuall) {
-      int a = sumOfDigits(year);
-      int b = year + a;
-      return sumOfDigits(b);
-    }
-  }
-}
-
-class PersonData {
-  String names, lastNames;
-  int birthDay, birthMonth, birthYear;
-
-  PersonData(
-      {this.names,
-      this.lastNames,
-      this.birthDay,
-      this.birthMonth,
-      this.birthYear});
-
   String toString() {
-    return 'Nombre: ' +
-        names +
-        ' ' +
-        lastNames +
-        '\nFecha de nacimiento: ' +
-        birthDay.toString() +
-        '/' +
-        birthMonth.toString() +
-        '/' +
-        birthYear.toString();
+    return 'Nombre: ' + fullName + '\nFecha de nacimiento: ' + getBirthdate();
   }
 }
