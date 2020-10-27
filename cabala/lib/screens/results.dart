@@ -14,66 +14,65 @@ class ResultsPage extends StatelessWidget {
     final Map<int, int> yearCabalaValue = person.yearCabala(5);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Resultados'), centerTitle: true),
-      body: ListView(
-        padding: EdgeInsets.only(top: 20, bottom: 15),
-        children: <Widget>[
-          Text(
-            person.toString(),
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center
-          ),
-          SizedBox(height: 10),
-          Divider(thickness: 5, height: 10),
-          ListTile(
-            title: Text('Urgencia interior: $innerUrgencyValue', style: TextStyle(fontSize: 18)),
-            leading: Icon(Icons.person),
-            onTap: () => showInnerUrgencyInfo(context, innerUrgencyValue)
-          ),
-          Image.asset('assets/images/img2.jpeg',height: 150),
-          SizedBox(height: 10),
-          Divider(thickness: 5, height: 10),
-          ListTile(
-            title: Text('Tónica fundamental: $fundamentalTonicValue', style: TextStyle(fontSize: 18)),
-            leading: Icon(Icons.handyman),
-            onTap: () => showFundamentalTonicInfo(context, fundamentalTonicValue)
-          ),
-          Image.asset('assets/images/img3.jpeg', height: 120),
-          SizedBox(height: 10),
-          Divider(thickness: 5, height: 10),
-          ListTile(
-            title: Text('Tónica de hoy: $tonicOfTodayValue', style: TextStyle(fontSize: 18)),
-            leading: Icon(Icons.wb_sunny),
-            onTap: () => showTonicOfTodayInfo(context, tonicOfTodayValue)
-          ),
-          Image.asset('assets/images/img4.jpeg', height: 135),
-          SizedBox(height: 10),
-          Divider(thickness: 5, height: 10),
-          ListTile(
-            title: Text('Acontecimiento de este momento: $nowEventValue', style: TextStyle(fontSize: 18)),
-            leading: Icon(Icons.timer),
-            onTap: () => showNowEventInfo(context, nowEventValue)
-          ),
-          Image.asset('assets/images/img5.jpeg', height: 120),
-          SizedBox(height: 10),
-          Divider(thickness: 5, height: 10),
-          ListTile(
-            title: Text('Ver cábala del año y números regentes', style: TextStyle(fontSize: 18)),
-            leading: Icon(Icons.calendar_today),
-            onTap: () => showYearCabalaInfo(context, yearCabalaValue)
-          ),
-          Image.asset('assets/images/img6.jpeg', height: 225),
-          SizedBox(height: 10),
-          Divider(thickness: 5, height: 10),
-          ListTile(
-            title: Text('Ver información sobre los números', style: TextStyle(fontSize: 18)),
-            leading: Icon(Icons.info),
-            onTap: () => showNumbersInfo(context),
-          ),
-          Image.asset('assets/images/img7.jpg', height: 110)
-        ],
-      )
-    );
+        appBar: AppBar(title: Text('Resultados'), centerTitle: true),
+        body: ListView(
+          padding: EdgeInsets.only(top: 20, bottom: 15),
+          children: <Widget>[
+            Text(person.toString(),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center),
+            SizedBox(height: 10),
+            Divider(thickness: 5, height: 10),
+            ListTile(
+                title: Text('Urgencia interior: $innerUrgencyValue',
+                    style: TextStyle(fontSize: 18)),
+                leading: Icon(Icons.person),
+                onTap: () => showInnerUrgencyInfo(context, innerUrgencyValue)),
+            Image.asset('assets/images/img2.jpeg', height: 150),
+            SizedBox(height: 10),
+            Divider(thickness: 5, height: 10),
+            ListTile(
+                title: Text('Tónica fundamental: $fundamentalTonicValue',
+                    style: TextStyle(fontSize: 18)),
+                leading: Icon(Icons.handyman),
+                onTap: () =>
+                    showFundamentalTonicInfo(context, fundamentalTonicValue)),
+            Image.asset('assets/images/img3.jpeg', height: 120),
+            SizedBox(height: 10),
+            Divider(thickness: 5, height: 10),
+            ListTile(
+                title: Text('Tónica de hoy: $tonicOfTodayValue',
+                    style: TextStyle(fontSize: 18)),
+                leading: Icon(Icons.wb_sunny),
+                onTap: () => showTonicOfTodayInfo(context, tonicOfTodayValue)),
+            Image.asset('assets/images/img4.jpeg', height: 135),
+            SizedBox(height: 10),
+            Divider(thickness: 5, height: 10),
+            ListTile(
+                title: Text('Acontecimiento de este momento: $nowEventValue',
+                    style: TextStyle(fontSize: 18)),
+                leading: Icon(Icons.timer),
+                onTap: () => showNowEventInfo(context, nowEventValue)),
+            Image.asset('assets/images/img5.jpeg', height: 120),
+            SizedBox(height: 10),
+            Divider(thickness: 5, height: 10),
+            ListTile(
+                title: Text('Ver cábala del año y números regentes',
+                    style: TextStyle(fontSize: 18)),
+                leading: Icon(Icons.calendar_today),
+                onTap: () => showYearCabalaInfo(context, yearCabalaValue)),
+            Image.asset('assets/images/img6.jpeg', height: 225),
+            SizedBox(height: 10),
+            Divider(thickness: 5, height: 10),
+            ListTile(
+              title: Text('Ver información sobre los números',
+                  style: TextStyle(fontSize: 18)),
+              leading: Icon(Icons.info),
+              onTap: () => showNumbersInfo(context),
+            ),
+            Image.asset('assets/images/img7.jpg', height: 110)
+          ],
+        ));
   }
 
   void showInnerUrgencyInfo(BuildContext context, int innerUrgency) {
@@ -89,23 +88,22 @@ class ResultsPage extends StatelessWidget {
       'generosa, con ideas geniales, independiente.',
     ];
     final String dialogContent =
-      'La urgencia interior es como tendemos a ser, como un signo zodiacal, pero numérico. Tu urgencia interior es $innerUrgency.\n' +
-      'Este número hace a la persona ${innerUrgencyData[innerUrgency - 1]}';
+        'La urgencia interior es como tendemos a ser, como un signo zodiacal, pero numérico. Tu urgencia interior es $innerUrgency.\n' +
+            'Este número hace a la persona ${innerUrgencyData[innerUrgency - 1]}';
     showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Urgencia interior'),
-          content: Text(dialogContent),
-          actions: [
-            FlatButton(
-              child: Text("OK", style: TextStyle(color: Colors.blue)),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        );
-      }
-    );
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Urgencia interior'),
+            content: Text(dialogContent),
+            actions: [
+              FlatButton(
+                child: Text("OK", style: TextStyle(color: Colors.blue)),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
   }
 
   void showFundamentalTonicInfo(BuildContext context, int fundamentalTonic) {
@@ -121,23 +119,22 @@ class ResultsPage extends StatelessWidget {
       'ser generosa y genial, de preferencia trabajar independientemente.',
     ];
     final String dialogContent =
-      'La tónica fundamental es en lo que tenemos que trabajar para triunfar en la vida. Tu tónica fundamental es $fundamentalTonic.\n' +
-      'Este número indica que la persona tiene que ${fundamentalTonicData[fundamentalTonic - 1]}';
+        'La tónica fundamental es en lo que tenemos que trabajar para triunfar en la vida. Tu tónica fundamental es $fundamentalTonic.\n' +
+            'Este número indica que la persona tiene que ${fundamentalTonicData[fundamentalTonic - 1]}';
     showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Tónica fundamental'),
-          content: Text(dialogContent),
-          actions: [
-            FlatButton(
-              child: Text("OK", style: TextStyle(color: Colors.blue)),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        );
-      }
-    );
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Tónica fundamental'),
+            content: Text(dialogContent),
+            actions: [
+              FlatButton(
+                child: Text("OK", style: TextStyle(color: Colors.blue)),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
   }
 
   void showTonicOfTodayInfo(BuildContext context, int tonicOfToday) {
@@ -152,68 +149,64 @@ class ResultsPage extends StatelessWidget {
       'ser muy paciente, saber esperar.',
       'ser generosa y genial, de preferencia trabajar independientemente.',
     ];
-    final String dialogContent =
-      'Tu número para hoy es $tonicOfToday, ' +
-      'lo que indica que para tener más probabilidades de éxito en lo que te propongas este día, deberías: ${tonicOfTodayData[tonicOfToday - 1]}';
+    final String dialogContent = 'Tu número para hoy es $tonicOfToday, ' +
+        'lo que indica que para tener más probabilidades de éxito en lo que te propongas este día, deberías: ${tonicOfTodayData[tonicOfToday - 1]}';
     showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Regencia, tónica de hoy'),
-          content: Text(dialogContent),
-          actions: [
-            FlatButton(
-              child: Text("OK", style: TextStyle(color: Colors.blue)),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        );
-      }
-    );
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Regencia, tónica de hoy'),
+            content: Text(dialogContent),
+            actions: [
+              FlatButton(
+                child: Text("OK", style: TextStyle(color: Colors.blue)),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
   }
 
   void showNowEventInfo(BuildContext context, int nowEvent) {
     String dialogContent =
-      'A esta hora de este mismo día, lo mejor es regirse bajo el número $nowEvent para realizar con éxito lo que deseas ahora.';
+        'A esta hora de este mismo día, lo mejor es regirse bajo el número $nowEvent para realizar con éxito lo que deseas ahora.';
     showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Acontecimiento de este momento'),
-          content: Text(dialogContent),
-          actions: [
-            FlatButton(
-              child: Text("OK", style: TextStyle(color: Colors.blue)),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        );
-      }
-    );
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Acontecimiento de este momento'),
+            content: Text(dialogContent),
+            actions: [
+              FlatButton(
+                child: Text("OK", style: TextStyle(color: Colors.blue)),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
   }
 
   void showYearCabalaInfo(BuildContext context, Map<int, int> yearsCabala) {
     String dialogContent =
-      'Durante la vida tenemos años espaciales relacionados con la ley de causa y efecto (Karma), ' +
-      'dependerá de uno si el número nos favorezca o esté en contra de uno, por sus actos.';
+        'Durante la vida tenemos años espaciales relacionados con la ley de causa y efecto (Karma), ' +
+            'dependerá de uno si el número nos favorezca o esté en contra de uno, por sus actos.';
     yearsCabala.forEach((key, value) {
       dialogContent += '\nAño: $key, número regente: $value';
     });
     showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Cábala del año'),
-          content: Text(dialogContent),
-          actions: [
-            FlatButton(
-              child: Text("OK", style: TextStyle(color: Colors.blue)),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        );
-      }
-    );
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Cábala del año'),
+            content: Text(dialogContent),
+            actions: [
+              FlatButton(
+                child: Text("OK", style: TextStyle(color: Colors.blue)),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
   }
 
   void showNumbersInfo(BuildContext context) {
@@ -242,25 +235,26 @@ class ResultsPage extends StatelessWidget {
       'Triunfo, todo sale bien, poder, fuerza, buena suerte',
     ];
     showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Información sobre los números'),
-          content: ListView.builder(
-            itemCount: numbersInfoData.length,
-            itemBuilder: (BuildContext ctxt, int index) {
-              return Text('Arcano ${index + 1}: ${numbersInfoData[index]}');
-            }
-          ),
-          actions: [
-            FlatButton(
-              child: Text("OK", style: TextStyle(color: Colors.blue)),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        );
-      }
-    );
+        context: context,
+        builder: (BuildContext context) {
+          return FractionallySizedBox(
+            child: AlertDialog(
+              title: Text('Información sobre los números'),
+              content: ListView.builder(
+                  itemCount: numbersInfoData.length,
+                  itemBuilder: (BuildContext ctxt, int index) {
+                    return Text(
+                        'Arcano ${index + 1}: ${numbersInfoData[index]}');
+                  }),
+              actions: [
+                FlatButton(
+                  child: Text("OK", style: TextStyle(color: Colors.blue)),
+                  onPressed: () => Navigator.of(context).pop(),
+                )
+              ],
+            ),
+          );
+        });
   }
 }
 
@@ -277,8 +271,8 @@ class Person {
 
   int innerUrgency() {
     return kabbalisticSum(kabbalisticSum(birthdate.day) +
-      kabbalisticSum(birthdate.month) +
-      kabbalisticSum(birthdate.year));
+        kabbalisticSum(birthdate.month) +
+        kabbalisticSum(birthdate.year));
   }
 
   int fundamentalTonic() {
@@ -288,8 +282,8 @@ class Person {
 
   int tonicOfTheDay(DateTime date) {
     final int kabbalisticSumDate = kabbalisticSum(kabbalisticSum(date.day) +
-      kabbalisticSum(date.month) +
-      kabbalisticSum(date.year));
+        kabbalisticSum(date.month) +
+        kabbalisticSum(date.year));
     return kabbalisticSum(fundamentalTonic() + kabbalisticSumDate);
   }
 

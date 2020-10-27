@@ -1,4 +1,4 @@
-name: cabala
+name: Cabacalc
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -35,6 +35,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_launcher_icons: "^0.8.0"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/logo2.png"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -55,8 +62,7 @@ flutter:
       - assets/images/img5.jpeg
       - assets/images/img6.jpeg
       - assets/images/img7.jpg
-      
-  #   - images/a_dot_ham.jpeg
+      - assets/images/img8.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

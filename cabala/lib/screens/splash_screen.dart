@@ -1,4 +1,4 @@
-import 'package:cabala/main.dart';
+import 'package:Cabacalc/main.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/img6.jpeg"),
+            image: AssetImage("assets/images/img8.jpg"),
             colorFilter: new ColorFilter.mode(
                 Colors.black.withOpacity(0.8), BlendMode.dstATop),
             fit: BoxFit.cover,
@@ -40,7 +40,11 @@ class _SplashScreenState extends State<SplashScreen> {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(bottom: 30),
-              child: CircularProgressIndicator(),
+              child: Text('CABACALC',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 50,
+                  )),
             ),
           ],
         ),

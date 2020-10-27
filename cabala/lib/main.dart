@@ -1,7 +1,7 @@
-import 'package:cabala/screens/splash_screen.dart';
+import 'package:Cabacalc/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:cabala/screens/form.dart';
-import 'package:cabala/screens/results.dart';
+import 'package:Cabacalc/screens/form.dart';
+import 'package:Cabacalc/screens/results.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         supportedLocales: [
           const Locale('es'),
         ],
-        title: 'Cábala',
+        title: 'Cabacalc',
         theme: ThemeData.dark(),
         initialRoute: '/',
         routes: {
