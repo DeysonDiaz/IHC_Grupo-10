@@ -20,7 +20,7 @@ class ResultsPage extends StatelessWidget {
           padding: EdgeInsets.only(top: 20),
           children: <Widget>[
             Text(person.toString(),
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center),
             SizedBox(height: 10),
             Image.asset(
@@ -28,7 +28,8 @@ class ResultsPage extends StatelessWidget {
               height: 200,
             ),
             ListTile(
-              title: Text('Urgencia interior: $innerUrgencyValue'),
+              title: Text('Urgencia interior: $innerUrgencyValue',
+                  style: TextStyle(fontSize: 20)),
               leading: Icon(Icons.person),
               onTap: () => showInnerUrgencyInfo(context, innerUrgencyValue),
             ),
@@ -37,7 +38,8 @@ class ResultsPage extends StatelessWidget {
               height: 170,
             ),
             ListTile(
-              title: Text('Tónica fundamental: $fundamentalTonicValue'),
+              title: Text('Tónica fundamental: $fundamentalTonicValue',
+                  style: TextStyle(fontSize: 20)),
               leading: Icon(Icons.handyman),
               onTap: () =>
                   showFundamentalTonicInfo(context, fundamentalTonicValue),
@@ -47,7 +49,8 @@ class ResultsPage extends StatelessWidget {
               height: 190,
             ),
             ListTile(
-              title: Text('Tónica de hoy: $tonicOfTodayValue'),
+              title: Text('Tónica de hoy: $tonicOfTodayValue',
+                  style: TextStyle(fontSize: 20)),
               leading: Icon(Icons.wb_sunny),
               onTap: () => showTonicOfTodayInfo(context, tonicOfTodayValue),
             ),
@@ -56,7 +59,8 @@ class ResultsPage extends StatelessWidget {
               height: 170,
             ),
             ListTile(
-                title: Text('Acontecimiento de este momento: $nowEventValue'),
+                title: Text('Acontecimiento de este momento: $nowEventValue',
+                    style: TextStyle(fontSize: 20)),
                 leading: Icon(Icons.timer),
                 onTap: () => showNowEventInfo(context, nowEventValue)),
             Image.asset(
@@ -64,7 +68,8 @@ class ResultsPage extends StatelessWidget {
               height: 225,
             ),
             ListTile(
-              title: Text('Ver cábala del año y números regentes'),
+              title: Text('Ver cábala del año y números regentes',
+                  style: TextStyle(fontSize: 20)),
               leading: Icon(Icons.calendar_today),
               onTap: () => showYearCabalaInfo(context, yearCabalaValue),
             ),
@@ -73,7 +78,8 @@ class ResultsPage extends StatelessWidget {
               height: 150,
             ),
             ListTile(
-              title: Text('Ver información sobre los números'),
+              title: Text('Ver información sobre los números',
+                  style: TextStyle(fontSize: 20)),
               leading: Icon(Icons.info),
               onTap: () => showNumbersInfo(context),
             )

@@ -15,65 +15,68 @@ class _MyHomePage extends State<MyHomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Center(child: Text('Cabacalc'))),
-        body: Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.all(15),
-            child: Center(
-                child: Form(
-                    key: formKey,
-                    child: ListView(children: <Widget>[
-                      Text(
-                        'Ingrese sus datos',
-                        style: TextStyle(fontSize: 16),
-                        textAlign: TextAlign.center,
-                      ),
-                      Image.asset(
-                        'assets/images/img1.jpg',
-                        height: 225,
-                      ),
-                      TextFormField(
-                        decoration:
-                            InputDecoration(labelText: 'Nombre completo:'),
-                        onSaved: (value) {
-                          fullNameValue = value;
-                        },
-                        validator: (value) {
-                          if (value.trim().isEmpty) return 'Rellene este campo';
-                          return null;
-                        },
-                      ),
-                      DateTimeField(
-                        decoration:
-                            InputDecoration(labelText: 'Fecha de nacimiento:'),
-                        onSaved: (value) {
-                          birthdateValue = value;
-                        },
-                        validator: (value) {
-                          if (value == null) return 'Rellene este campo';
-                          return null;
-                        },
-                        format: DateFormat("dd-MM-yyyy"),
-                        onShowPicker:
-                            (BuildContext context, DateTime currentValue) {
-                          return showDatePicker(
-                            context: context,
-                            firstDate: DateTime(1900),
-                            initialDate: DateTime.now(),
-                            lastDate: DateTime.now(),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 15),
-                      Container(
-                        alignment: Alignment.center,
-                        child: OutlineButton(
-                            child: Text('Calcular estudio'),
-                            onPressed: () {
-                              showResultsPage(context);
-                            }),
-                      )
-                    ])))));
+        appBar: AppBar(title: Text('             Cabacalc')),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 30),
+          child: Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(15),
+              child: Center(
+                  child: Form(
+                      key: formKey,
+                      child: ListView(children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 40),
+                          child: Text(
+                            'Ingrese sus datos',
+                            style: TextStyle(fontSize: 30),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        TextFormField(
+                          decoration:
+                              InputDecoration(labelText: 'Nombre completo:'),
+                          onSaved: (value) {
+                            fullNameValue = value;
+                          },
+                          validator: (value) {
+                            if (value.trim().isEmpty)
+                              return 'Rellene este campo';
+                            return null;
+                          },
+                        ),
+                        DateTimeField(
+                          decoration: InputDecoration(
+                              labelText: 'Fecha de nacimiento:'),
+                          onSaved: (value) {
+                            birthdateValue = value;
+                          },
+                          validator: (value) {
+                            if (value == null) return 'Rellene este campo';
+                            return null;
+                          },
+                          format: DateFormat("dd-MM-yyyy"),
+                          onShowPicker:
+                              (BuildContext context, DateTime currentValue) {
+                            return showDatePicker(
+                              context: context,
+                              firstDate: DateTime(1900),
+                              initialDate: DateTime.now(),
+                              lastDate: DateTime.now(),
+                            );
+                          },
+                        ),
+                        SizedBox(height: 15),
+                        Container(
+                          alignment: Alignment.center,
+                          child: OutlineButton(
+                              child: Text('Calcular estudio'),
+                              onPressed: () {
+                                showResultsPage(context);
+                              }),
+                        )
+                      ])))),
+        ));
   }
 
   void showResultsPage(BuildContext context) {
