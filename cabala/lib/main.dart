@@ -43,7 +43,15 @@ class InitialPage extends StatelessWidget {
           children: <Widget>[
             Text('CABACALC',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50)),
-            SizedBox(height: 40),
+            SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Text(
+                  'Quieres saber tu urgencia interior(un tipo de signo zodiacal numérico), tu tónica fundamental (lo que tienes que hacer para tener éxito en la vida) y otros datos más de importancia.',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  textAlign: TextAlign.center),
+            ),
+            SizedBox(height: 20),
             RaisedButton(
               child: Text('Comenzar',
                   style: TextStyle(color: Colors.white, fontSize: 20)),
