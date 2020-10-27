@@ -26,7 +26,7 @@ class _MyHomePage extends State<MyHomePage> {
                       key: formKey,
                       child: ListView(children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 40),
+                          padding: const EdgeInsets.only(bottom: 20),
                           child: Text(
                             'Ingrese sus datos',
                             style: TextStyle(fontSize: 30),
@@ -70,7 +70,8 @@ class _MyHomePage extends State<MyHomePage> {
                         Container(
                           alignment: Alignment.center,
                           child: OutlineButton(
-                              child: Text('Calcular estudio'),
+                              child: Text('Calcular estudio',
+                                  style: TextStyle(fontSize: 20)),
                               onPressed: () {
                                 showResultsPage(context);
                               }),

@@ -50,7 +50,7 @@ class _PageInitial extends State<PageInitial> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: RaisedButton(
-                  child: Text('Acceder',
+                  child: Text('Comenzar',
                       style: TextStyle(color: Colors.white, fontSize: 20)),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
