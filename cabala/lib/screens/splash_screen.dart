@@ -10,7 +10,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(
-      Duration(milliseconds: 5000),
+      Duration(seconds: 4),
       () => Navigator.push(
         context,
         MaterialPageRoute(
