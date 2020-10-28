@@ -34,7 +34,7 @@ class InitialPage extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage("assets/images/img1.jpg"),
             colorFilter: new ColorFilter.mode(
-                Colors.black.withOpacity(0.3), BlendMode.dstATop),
+                Colors.black.withOpacity(0.25), BlendMode.dstATop),
             fit: BoxFit.cover,
           ),
         ),
@@ -47,7 +47,7 @@ class InitialPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Text(
-                  'Quieres saber tu urgencia interior(un tipo de signo zodiacal numérico), tu tónica fundamental (lo que tienes que hacer para tener éxito en la vida) y otros datos más de importancia.',
+                  '¿Quieres saber tu urgencia interior(un tipo de signo zodiacal numérico), tu tónica fundamental (lo que tienes que hacer para tener éxito en la vida) y otros datos más de importancia?',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   textAlign: TextAlign.center),
             ),
