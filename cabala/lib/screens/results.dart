@@ -29,7 +29,6 @@ class ResultsPage extends StatelessWidget {
                 onTap: () => showInnerUrgencyInfo(context, innerUrgencyValue),
                 subtitle: Padding(padding: EdgeInsets.only(top: 10), child: Image.asset('assets/images/img2.jpeg', height: 110, alignment: Alignment.centerLeft)),    
             ),
-            SizedBox(height: 10),
             Divider(thickness: 5, height: 10),
             ListTile(
                 title: Text('Tónica fundamental: $fundamentalTonicValue',
@@ -38,7 +37,6 @@ class ResultsPage extends StatelessWidget {
                 onTap: () => showFundamentalTonicInfo(context, fundamentalTonicValue),
                 subtitle: Padding(padding: EdgeInsets.only(top: 10), child: Image.asset('assets/images/img3.jpeg', height: 90, alignment: Alignment.centerLeft)),
             ),
-            SizedBox(height: 10),
             Divider(thickness: 5, height: 10),
             ListTile(
                 title: Text('Tónica de hoy: $tonicOfTodayValue',
@@ -47,7 +45,6 @@ class ResultsPage extends StatelessWidget {
                 onTap: () => showTonicOfTodayInfo(context, tonicOfTodayValue),
                 subtitle: Padding(padding: EdgeInsets.only(top: 10), child: Image.asset('assets/images/img4.jpeg', height: 105, alignment: Alignment.centerLeft)),
             ),
-            SizedBox(height: 10),
             Divider(thickness: 5, height: 10),
             ListTile(
                 title: Text('Acontecimiento de este momento: $nowEventValue',
@@ -56,7 +53,6 @@ class ResultsPage extends StatelessWidget {
                 onTap: () => showNowEventInfo(context, nowEventValue),
                 subtitle: Padding(padding: EdgeInsets.only(top: 10), child: Image.asset('assets/images/img5.jpeg', height: 90, alignment: Alignment.centerLeft)),
             ),
-            SizedBox(height: 10),
             Divider(thickness: 5, height: 10),
             ListTile(
                 title: Text('Ver cábala del año y números regentes',
@@ -65,7 +61,6 @@ class ResultsPage extends StatelessWidget {
                 onTap: () => showYearCabalaInfo(context, yearCabalaValue),
                 subtitle: Padding(padding: EdgeInsets.only(top: 10), child: Image.asset('assets/images/img6.jpeg', height: 150, alignment: Alignment.centerLeft)),
             ),
-            SizedBox(height: 10),
             Divider(thickness: 5, height: 10),
             ListTile(
               title: Text('Ver información sobre los números',
