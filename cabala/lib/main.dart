@@ -47,7 +47,7 @@ class InitialPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Text(
-                  '¿Quieres saber tu urgencia interior(un tipo de signo zodiacal numérico), tu tónica fundamental (lo que tienes que hacer para tener éxito en la vida) y otros datos más de importancia?',
+                  '¿Quieres saber bajo qué números regirte hoy y cada día, qué hacer para tener éxito en lo que te propongas? ¡Realiza un estudio cabalístico!',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   textAlign: TextAlign.center),
             ),
