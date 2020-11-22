@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "39642150340",
+    "firebase_url": "https://crud-music-fit.firebaseio.com",
+    "project_id": "crud-music-fit",
+    "storage_bucket": "crud-music-fit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39642150340:android:8ddff1d6a174a38dc4e091",
+        "android_client_info": {
+          "package_name": "com.example.music_fit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39642150340-u57fidjlgdrh7624kadhjn584td77tm1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.music_fit",
+            "certificate_hash": "412758220d1768cbc6670f71f9037f7205eb1575"
+          }
+        },
+        {
+          "client_id": "39642150340-5c9oc8lc8qmuqi51bb0r6l3gac2ep2pj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApf61ZV0wdyVkH73wLbLLAWy-D4astLfs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39642150340-5c9oc8lc8qmuqi51bb0r6l3gac2ep2pj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
