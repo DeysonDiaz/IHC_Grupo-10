@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:music_fit/Model/song.dart';
+import 'package:music_fit/UI/listview_song.dart';
 
 class SongScreen extends StatefulWidget {
   final Song song;
@@ -36,7 +37,7 @@ class _SongScreenState extends State<SongScreen> {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
-        title: Text("Canciones"),
+        title: Text("Canción"),
         backgroundColor: Colors.deepOrangeAccent,
       ),
       body: Container(
@@ -48,12 +49,14 @@ class _SongScreenState extends State<SongScreen> {
               children: <Widget>[
                 TextField(
                   controller: _nombreController,
-                  style:
-                      TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
+                  style: TextStyle(fontSize: 17.0, color: Colors.blue),
                   decoration: InputDecoration(
-                    icon: Icon(Icons.music_note),
-                    labelText: "Nombre",
-                  ),
+                      icon: Icon(Icons.music_note,
+                          color: Colors.deepOrangeAccent),
+                      labelText: "Nombre",
+                      labelStyle: TextStyle(
+                        color: Colors.deepOrangeAccent,
+                      )),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
@@ -61,12 +64,13 @@ class _SongScreenState extends State<SongScreen> {
                 Divider(),
                 TextField(
                   controller: _artistaController,
-                  style:
-                      TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
+                  style: TextStyle(fontSize: 17.0, color: Colors.blue),
                   decoration: InputDecoration(
-                    icon: Icon(Icons.person),
-                    labelText: "Artista",
-                  ),
+                      icon: Icon(Icons.person, color: Colors.deepOrangeAccent),
+                      labelText: "Artista",
+                      labelStyle: TextStyle(
+                        color: Colors.deepOrangeAccent,
+                      )),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
@@ -74,12 +78,13 @@ class _SongScreenState extends State<SongScreen> {
                 Divider(),
                 TextField(
                   controller: _albumController,
-                  style:
-                      TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
+                  style: TextStyle(fontSize: 17.0, color: Colors.blue),
                   decoration: InputDecoration(
-                    icon: Icon(Icons.album),
-                    labelText: "Álbum",
-                  ),
+                      icon: Icon(Icons.album, color: Colors.deepOrangeAccent),
+                      labelText: "Álbum",
+                      labelStyle: TextStyle(
+                        color: Colors.deepOrangeAccent,
+                      )),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
@@ -87,12 +92,14 @@ class _SongScreenState extends State<SongScreen> {
                 Divider(),
                 TextField(
                   controller: _duracionController,
-                  style:
-                      TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
+                  style: TextStyle(fontSize: 17.0, color: Colors.blue),
                   decoration: InputDecoration(
-                    icon: Icon(Icons.access_time_rounded),
-                    labelText: "Duración",
-                  ),
+                      icon: Icon(Icons.access_time_rounded,
+                          color: Colors.deepOrangeAccent),
+                      labelText: "Duración",
+                      labelStyle: TextStyle(
+                        color: Colors.deepOrangeAccent,
+                      )),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
@@ -100,12 +107,14 @@ class _SongScreenState extends State<SongScreen> {
                 Divider(),
                 TextField(
                   controller: _anioController,
-                  style:
-                      TextStyle(fontSize: 17.0, color: Colors.deepOrangeAccent),
+                  style: TextStyle(fontSize: 17.0, color: Colors.blue),
                   decoration: InputDecoration(
-                    icon: Icon(Icons.calendar_today),
-                    labelText: "Año",
-                  ),
+                      icon: Icon(Icons.calendar_today,
+                          color: Colors.deepOrangeAccent),
+                      labelText: "Año",
+                      labelStyle: TextStyle(
+                        color: Colors.deepOrangeAccent,
+                      )),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
@@ -121,7 +130,14 @@ class _SongScreenState extends State<SongScreen> {
                           'duracion': _duracionController.text,
                           'anio': _anioController.text,
                         }).then((_) {
-                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    ListViewSong(),
+                                fullscreenDialog: true,
+                              ));
+                          setState(() {});
                         });
                       } else {
                         songReference.push().set({
@@ -136,8 +152,15 @@ class _SongScreenState extends State<SongScreen> {
                       }
                     },
                     child: (widget.song.id != null)
-                        ? Text('Actualizar')
-                        : Text('Agregar')),
+                        ? Text(
+                            'Actualizar',
+                            style: TextStyle(
+                                color: Colors.deepOrangeAccent, fontSize: 20.0),
+                          )
+                        : Text('Agregar',
+                            style: TextStyle(
+                                color: Colors.deepOrangeAccent,
+                                fontSize: 20.0))),
               ],
             ),
           ),

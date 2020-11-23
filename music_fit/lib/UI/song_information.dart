@@ -26,7 +26,7 @@ class _SongInformationState extends State<SongInformation> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Información de la Canción'),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.deepOrangeAccent,
       ),
       body: Container(
         height: 400.0,
@@ -37,42 +37,27 @@ class _SongInformationState extends State<SongInformation> {
               children: <Widget>[
                 new Text(
                   "Nombre: ${widget.song.nombre}",
-                  style: TextStyle(fontSize: 18.0),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 8.0),
+                  style: TextStyle(color: Colors.blue, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Artista: ${widget.song.artista}",
-                  style: TextStyle(fontSize: 18.0),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 8.0),
+                  style: TextStyle(color: Colors.blue, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Álbum: ${widget.song.album}",
-                  style: TextStyle(fontSize: 18.0),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 8.0),
+                  style: TextStyle(color: Colors.blue, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Año: ${widget.song.anio}",
-                  style: TextStyle(fontSize: 18.0),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 8.0),
+                  style: TextStyle(color: Colors.blue, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Duración: ${widget.song.duracion}",
-                  style: TextStyle(fontSize: 18.0),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 8.0),
+                  style: TextStyle(color: Colors.blue, fontSize: 18.0),
                 ),
                 Divider(),
               ],

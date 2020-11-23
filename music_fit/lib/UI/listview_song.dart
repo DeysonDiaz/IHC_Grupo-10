@@ -43,7 +43,7 @@ class _ListViewSongState extends State<ListViewSong> {
         appBar: AppBar(
           title: Text('Canciones'),
           centerTitle: true,
-          backgroundColor: Colors.deepPurpleAccent,
+          backgroundColor: Colors.deepOrangeAccent,
         ),
         body: Center(
           child: ListView.builder(
@@ -95,7 +95,8 @@ class _ListViewSongState extends State<ListViewSong> {
                         onPressed: () => _showDialog(context, position),
                       ),
                       IconButton(
-                          icon: Icon(Icons.edit, color: Colors.blueAccent),
+                          icon: Icon(Icons.remove_red_eye,
+                              color: Colors.blueAccent),
                           onPressed: () =>
                               _navigateToSong(context, items[position])),
                     ],
@@ -123,13 +124,10 @@ class _ListViewSongState extends State<ListViewSong> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Alerta'),
-          content: Text('¿Quiere eliminar sta cancion?'),
+          content: Text('¿Quiere eliminar esta cancion?'),
           actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.delete,
-                color: Colors.purple,
-              ),
+            new FlatButton(
+              child: Text('Eliminar'),
               onPressed: () => _deleteSong(
                 context,
                 items[position],
@@ -175,14 +173,14 @@ class _ListViewSongState extends State<ListViewSong> {
   void _navigateToSongInformation(BuildContext context, Song song) async {
     await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SongInformation(song)),
+      MaterialPageRoute(builder: (context) => SongScreen(song)),
     );
   }
 
   void _navigateToSong(BuildContext context, Song song) async {
     await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SongScreen(song)),
+      MaterialPageRoute(builder: (context) => SongInformation(song)),
     );
   }
 
