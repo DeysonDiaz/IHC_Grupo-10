@@ -144,7 +144,7 @@ class _SignupPageState extends State<SignupPage> {
                           SizedBox(width:5.0),
                           InkWell(
                             onTap: (){
-                              Navigator.of(context).pushNamed('/conditions')
+                              Navigator.of(context).pushNamed('/conditions');
                             },
                             child: Text(
                               'terminos y condiciones',

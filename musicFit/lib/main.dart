@@ -157,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           SizedBox(width:5.0),
                           InkWell(
                             onTap: (){
-                              Navigator.of(context).pushNamed('/signup')
+                              Navigator.of(context).pushNamed('/signup.dart');
                             },
                             child: Text(
                               'registrate',
