@@ -150,10 +150,29 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text(
                             'registrate',
                             style: TextStyle(
+<<<<<<< HEAD
                               color: Colors.green,
                               fontFamily: 'Montserrat',
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.underline,
+=======
+                              fontFamily: 'Montserrat'
+                            ),
+                          ),
+                          SizedBox(width:5.0),
+                          InkWell(
+                            onTap: (){
+                              Navigator.of(context).pushNamed('/signup.dart');
+                            },
+                            child: Text(
+                              'registrate',
+                              style: TextStyle(
+                                color: Colors.green,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline,
+                              ),
+>>>>>>> 850f3945f45059bc055ce979ee36d820076efdd7
                             ),
                           ),
                         ),

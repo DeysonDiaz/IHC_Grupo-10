@@ -137,7 +137,11 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                           SizedBox(width: 5.0),
                           InkWell(
+<<<<<<< HEAD
                             onTap: () {
+=======
+                            onTap: (){
+>>>>>>> 850f3945f45059bc055ce979ee36d820076efdd7
                               Navigator.of(context).pushNamed('/conditions');
                             },
                             child: Text(
