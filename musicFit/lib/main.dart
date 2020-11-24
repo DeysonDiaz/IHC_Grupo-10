@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Container(
               decoration: new BoxDecoration(
                 image: new DecorationImage(
-                    image: new AssetImage("assets/runing.jpg"),
+                    image: new AssetImage("assets/images/3.jpg"),
                     fit: BoxFit.cover
                 ),
               ),
