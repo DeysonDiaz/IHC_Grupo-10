@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:async';
-import 'package:music_fit/UI/song_information.dart';
-import 'package:music_fit/UI/song_screen.dart';
+import 'song_information.dart';
+import 'song_screen.dart';
 import 'package:music_fit/Model/song.dart';
+import 'package:music_fit/main.dart';
 
 class ListViewSong extends StatefulWidget {
   @override
@@ -38,12 +39,20 @@ class _ListViewSongState extends State<ListViewSong> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Canciones',
       home: Scaffold(
         appBar: AppBar(
           title: Text('Canciones'),
           centerTitle: true,
-          backgroundColor: Colors.deepOrangeAccent,
+          backgroundColor: Colors.green,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.exit_to_app,
+                color: Colors.white,
+              ),
+              onPressed: () => _login(context),
+            )
+          ],
         ),
         body: Center(
           child: ListView.builder(
@@ -62,24 +71,24 @@ class _ListViewSongState extends State<ListViewSong> {
                           title: Text(
                             '${items[position].nombre}',
                             style: TextStyle(
-                              color: Colors.blueAccent,
+                              color: Colors.purple,
                               fontSize: 21.0,
                             ),
                           ),
                           subtitle: Text('${items[position].artista}',
                               style: TextStyle(
-                                color: Colors.blueGrey,
+                                color: Colors.grey,
                                 fontSize: 21.0,
                               )),
                           leading: Column(
                             children: <Widget>[
                               CircleAvatar(
-                                backgroundColor: Colors.amberAccent,
+                                backgroundColor: Colors.purple,
                                 radius: 17.0,
                                 child: Text(
                                   '${position + 1}',
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: Colors.white,
                                     fontSize: 21.0,
                                   ),
                                 ),
@@ -91,14 +100,13 @@ class _ListViewSongState extends State<ListViewSong> {
                         ),
                       ),
                       IconButton(
+                          icon: Icon(Icons.edit, color: Colors.blueAccent),
+                          onPressed: () =>
+                              _navigateToSong(context, items[position])),
+                      IconButton(
                         icon: Icon(Icons.delete, color: Colors.red),
                         onPressed: () => _showDialog(context, position),
                       ),
-                      IconButton(
-                          icon: Icon(Icons.remove_red_eye,
-                              color: Colors.blueAccent),
-                          onPressed: () =>
-                              _navigateToSong(context, items[position])),
                     ],
                   ),
                 ],
@@ -111,7 +119,7 @@ class _ListViewSongState extends State<ListViewSong> {
             Icons.add,
             color: Colors.white,
           ),
-          backgroundColor: Colors.deepOrangeAccent,
+          backgroundColor: Colors.green,
           onPressed: () => _createNewSong(context),
         ),
       ),
@@ -127,7 +135,7 @@ class _ListViewSongState extends State<ListViewSong> {
           content: Text('¿Quiere eliminar esta cancion?'),
           actions: <Widget>[
             new FlatButton(
-              child: Text('Eliminar'),
+              child: Text('Eliminar', style: TextStyle(color: Colors.red)),
               onPressed: () => _deleteSong(
                 context,
                 items[position],
@@ -173,14 +181,14 @@ class _ListViewSongState extends State<ListViewSong> {
   void _navigateToSongInformation(BuildContext context, Song song) async {
     await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SongScreen(song)),
+      MaterialPageRoute(builder: (context) => SongInformation(song)),
     );
   }
 
   void _navigateToSong(BuildContext context, Song song) async {
     await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SongInformation(song)),
+      MaterialPageRoute(builder: (context) => SongScreen(song)),
     );
   }
 
@@ -189,6 +197,13 @@ class _ListViewSongState extends State<ListViewSong> {
       context,
       MaterialPageRoute(
           builder: (context) => SongScreen(Song(null, '', '', '', '', ''))),
+    );
+  }
+
+  _login(BuildContext context) async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MyHomePage()),
     );
   }
 }

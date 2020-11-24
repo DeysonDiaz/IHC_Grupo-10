@@ -38,7 +38,7 @@ class _SongScreenState extends State<SongScreen> {
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text("Canción"),
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.green,
       ),
       body: Container(
         height: 570.0,
@@ -49,13 +49,12 @@ class _SongScreenState extends State<SongScreen> {
               children: <Widget>[
                 TextField(
                   controller: _nombreController,
-                  style: TextStyle(fontSize: 17.0, color: Colors.blue),
+                  style: TextStyle(fontSize: 17.0, color: Colors.black),
                   decoration: InputDecoration(
-                      icon: Icon(Icons.music_note,
-                          color: Colors.deepOrangeAccent),
+                      icon: Icon(Icons.music_note, color: Colors.green),
                       labelText: "Nombre",
                       labelStyle: TextStyle(
-                        color: Colors.deepOrangeAccent,
+                        color: Colors.green,
                       )),
                 ),
                 Padding(
@@ -64,12 +63,12 @@ class _SongScreenState extends State<SongScreen> {
                 Divider(),
                 TextField(
                   controller: _artistaController,
-                  style: TextStyle(fontSize: 17.0, color: Colors.blue),
+                  style: TextStyle(fontSize: 17.0, color: Colors.black),
                   decoration: InputDecoration(
-                      icon: Icon(Icons.person, color: Colors.deepOrangeAccent),
-                      labelText: "Artista",
+                      icon: Icon(Icons.person, color: Colors.green),
+                      labelText: "Artista(s)",
                       labelStyle: TextStyle(
-                        color: Colors.deepOrangeAccent,
+                        color: Colors.green,
                       )),
                 ),
                 Padding(
@@ -78,12 +77,12 @@ class _SongScreenState extends State<SongScreen> {
                 Divider(),
                 TextField(
                   controller: _albumController,
-                  style: TextStyle(fontSize: 17.0, color: Colors.blue),
+                  style: TextStyle(fontSize: 17.0, color: Colors.black),
                   decoration: InputDecoration(
-                      icon: Icon(Icons.album, color: Colors.deepOrangeAccent),
+                      icon: Icon(Icons.album, color: Colors.green),
                       labelText: "Álbum",
                       labelStyle: TextStyle(
-                        color: Colors.deepOrangeAccent,
+                        color: Colors.green,
                       )),
                 ),
                 Padding(
@@ -92,13 +91,13 @@ class _SongScreenState extends State<SongScreen> {
                 Divider(),
                 TextField(
                   controller: _duracionController,
-                  style: TextStyle(fontSize: 17.0, color: Colors.blue),
+                  style: TextStyle(fontSize: 17.0, color: Colors.black),
                   decoration: InputDecoration(
-                      icon: Icon(Icons.access_time_rounded,
-                          color: Colors.deepOrangeAccent),
+                      icon:
+                          Icon(Icons.access_time_rounded, color: Colors.green),
                       labelText: "Duración",
                       labelStyle: TextStyle(
-                        color: Colors.deepOrangeAccent,
+                        color: Colors.green,
                       )),
                 ),
                 Padding(
@@ -107,13 +106,12 @@ class _SongScreenState extends State<SongScreen> {
                 Divider(),
                 TextField(
                   controller: _anioController,
-                  style: TextStyle(fontSize: 17.0, color: Colors.blue),
+                  style: TextStyle(fontSize: 17.0, color: Colors.black),
                   decoration: InputDecoration(
-                      icon: Icon(Icons.calendar_today,
-                          color: Colors.deepOrangeAccent),
+                      icon: Icon(Icons.calendar_today, color: Colors.green),
                       labelText: "Año",
                       labelStyle: TextStyle(
-                        color: Colors.deepOrangeAccent,
+                        color: Colors.green,
                       )),
                 ),
                 Padding(
@@ -155,12 +153,17 @@ class _SongScreenState extends State<SongScreen> {
                         ? Text(
                             'Actualizar',
                             style: TextStyle(
-                                color: Colors.deepOrangeAccent, fontSize: 20.0),
+                                color: Colors.green,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold),
                           )
-                        : Text('Agregar',
+                        : Text(
+                            'Agregar',
                             style: TextStyle(
-                                color: Colors.deepOrangeAccent,
-                                fontSize: 20.0))),
+                                color: Colors.green,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold),
+                          )),
               ],
             ),
           ),

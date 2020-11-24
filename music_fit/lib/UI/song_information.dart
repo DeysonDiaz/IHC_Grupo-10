@@ -26,7 +26,7 @@ class _SongInformationState extends State<SongInformation> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Información de la Canción'),
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.green,
       ),
       body: Container(
         height: 400.0,
@@ -37,27 +37,27 @@ class _SongInformationState extends State<SongInformation> {
               children: <Widget>[
                 new Text(
                   "Nombre: ${widget.song.nombre}",
-                  style: TextStyle(color: Colors.blue, fontSize: 18.0),
+                  style: TextStyle(color: Colors.green, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Artista: ${widget.song.artista}",
-                  style: TextStyle(color: Colors.blue, fontSize: 18.0),
+                  style: TextStyle(color: Colors.green, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Álbum: ${widget.song.album}",
-                  style: TextStyle(color: Colors.blue, fontSize: 18.0),
+                  style: TextStyle(color: Colors.green, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Año: ${widget.song.anio}",
-                  style: TextStyle(color: Colors.blue, fontSize: 18.0),
+                  style: TextStyle(color: Colors.green, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Duración: ${widget.song.duracion}",
-                  style: TextStyle(color: Colors.blue, fontSize: 18.0),
+                  style: TextStyle(color: Colors.green, fontSize: 18.0),
                 ),
                 Divider(),
               ],
