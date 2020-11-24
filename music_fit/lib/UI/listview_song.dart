@@ -78,7 +78,7 @@ class _ListViewSongState extends State<ListViewSong> {
                           subtitle: Text('${items[position].artista}',
                               style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 21.0,
+                                fontSize: 18.0,
                               )),
                           leading: Column(
                             children: <Widget>[
