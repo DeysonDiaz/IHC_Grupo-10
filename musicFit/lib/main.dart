@@ -24,6 +24,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -32,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Container(
               decoration: new BoxDecoration(
                 image: new DecorationImage(
-                    image: new AssetImage("assets/images/avatar.jpg"),
+                    image: new AssetImage("assets/runing.jpg"),
                     fit: BoxFit.cover
                 ),
               ),
