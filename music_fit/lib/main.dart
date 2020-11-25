@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontSize: 80.0, fontWeight: FontWeight.bold)),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 120, left: 125),
+                  padding: EdgeInsets.only(top: 120, left: 140),
                   child: Text('  .',
                       style: TextStyle(
                           fontSize: 80.0,
