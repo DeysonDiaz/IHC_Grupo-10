@@ -43,7 +43,7 @@ class _SignupPageState extends State<SignupPage> {
                     children: <Widget>[
                       TextField(
                         decoration: InputDecoration(
-                            labelText: 'EMAIL',
+                            labelText: 'CORREO',
                             labelStyle: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
@@ -56,7 +56,7 @@ class _SignupPageState extends State<SignupPage> {
                       SizedBox(height: 10.0),
                       TextField(
                         decoration: InputDecoration(
-                            labelText: 'NAME ',
+                            labelText: 'NOMBRE ',
                             labelStyle: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
@@ -67,7 +67,7 @@ class _SignupPageState extends State<SignupPage> {
                       SizedBox(height: 10.0),
                       TextField(
                         decoration: InputDecoration(
-                            labelText: 'PASSWORD ',
+                            labelText: 'CONTRASEÑA ',
                             labelStyle: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
