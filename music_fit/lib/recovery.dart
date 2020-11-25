@@ -46,7 +46,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
                     children: <Widget>[
                       TextField(
                         decoration: InputDecoration(
-                            labelText: 'CODE',
+                            labelText: 'CODIGO',
                             labelStyle: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
