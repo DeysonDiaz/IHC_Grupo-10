@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       child: Center(
                         child: Text(
-                          '¿Olvido su Contraseña?',
+                          '¿Olvido su Contraseña.?',
                           style: TextStyle(
                               color: Colors.green,
                               fontWeight: FontWeight.bold,
