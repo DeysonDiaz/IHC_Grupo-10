@@ -34,11 +34,11 @@ class _MyHomePageState extends State<MyHomePage> {
       resizeToAvoidBottomPadding: false,
       body: Form(
           child: Container(
-              decoration: new BoxDecoration(
+              /*decoration: new BoxDecoration(
                 image: new DecorationImage(
                     image: new AssetImage("assets/images/3.jpg"),
                     fit: BoxFit.cover),
-              ),
+              ),*/
               child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
