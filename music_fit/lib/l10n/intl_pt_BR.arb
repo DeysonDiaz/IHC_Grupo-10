@@ -1,0 +1,39 @@
+{
+    "email": "CORREIO",
+    "password": "SENHA",
+    "btnquestion": "Esqueceu sua senha?",
+    "btnlogin": "Iniciar sessão",
+    "question2": "Você não tem uma conta?",
+    "btnregistration": "Cadastre-se",
+    
+    "recovery": "Recuperar senha",
+    "text": "Um código de recuperação foi enviado para seu e-mail",
+    "code": "CÓDIGO",
+    "btnrecover": "Recuperar",
+    "btnback": "Atrás",
+
+    "register": "Registro",
+    "name": "NOME",
+    "btnregister": "Check-in",
+
+    "songs": "Canções",
+    "song": "Canção",
+    "songname": "Nome",
+    "songartist": "Artista(s)",
+    "songalbum": "Álbum",
+    "songduration": "Duração",
+    "songyear": "Ano",
+    "btnadd": "Adicionar",
+    "btntoupdate": "Atualizar",
+    "alert": "Alerta",
+    "alertquestion": "Você quer deletar esta música?",
+    "btndelete": "Remover",
+    "btncancel": "Cancelar",
+
+    "songinformation": "Informação da música",
+    "songinformationname": "Nome: {name}",
+    "songinformationartist": "Artista: {artist}",
+    "songinformationalbum": "Álbum: {album}",
+    "songinformationduration": "Duração: {duration}",
+    "songinformationyear": "Ano: {year}"
+}

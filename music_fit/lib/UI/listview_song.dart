@@ -5,6 +5,7 @@ import 'song_information.dart';
 import 'song_screen.dart';
 import 'package:music_fit/Model/song.dart';
 import 'package:music_fit/main.dart';
+import 'package:music_fit/generated/l10n.dart';
 
 class ListViewSong extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _ListViewSongState extends State<ListViewSong> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    //TODO: implement initState
     super.initState();
     items = new List();
     _onSongAddedSubscription = songReference.onChildAdded.listen(_onSongAdded);
@@ -41,7 +42,7 @@ class _ListViewSongState extends State<ListViewSong> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Canciones'),
+          title: Text(AppLocalizations.of(context).songs),
           centerTitle: true,
           backgroundColor: Colors.green,
           actions: <Widget>[
@@ -131,11 +132,12 @@ class _ListViewSongState extends State<ListViewSong> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Alerta'),
-          content: Text('¿Quiere eliminar esta cancion?'),
+          title: Text(AppLocalizations.of(context).alert),
+          content: Text(AppLocalizations.of(context).alertquestion),
           actions: <Widget>[
             new FlatButton(
-              child: Text('Eliminar', style: TextStyle(color: Colors.red)),
+              child: Text(AppLocalizations.of(context).btndelete,
+                  style: TextStyle(color: Colors.red)),
               onPressed: () => _deleteSong(
                 context,
                 items[position],
@@ -143,7 +145,7 @@ class _ListViewSongState extends State<ListViewSong> {
               ),
             ),
             new FlatButton(
-              child: Text('Cancelar'),
+              child: Text(AppLocalizations.of(context).btncancel),
               onPressed: () {
                 Navigator.of(context).pop();
               },

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:music_fit/Model/song.dart';
 import 'package:music_fit/UI/listview_song.dart';
+import 'package:music_fit/generated/l10n.dart';
 
 class SongScreen extends StatefulWidget {
   final Song song;
@@ -37,7 +38,7 @@ class _SongScreenState extends State<SongScreen> {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
-        title: Text("Canción"),
+        title: Text(AppLocalizations.of(context).song),
         backgroundColor: Colors.green,
       ),
       body: Container(
@@ -52,7 +53,7 @@ class _SongScreenState extends State<SongScreen> {
                   style: TextStyle(fontSize: 17.0, color: Colors.black),
                   decoration: InputDecoration(
                       icon: Icon(Icons.music_note, color: Colors.green),
-                      labelText: "Nombre",
+                      labelText: AppLocalizations.of(context).songname,
                       labelStyle: TextStyle(
                         color: Colors.green,
                       )),
@@ -66,7 +67,7 @@ class _SongScreenState extends State<SongScreen> {
                   style: TextStyle(fontSize: 17.0, color: Colors.black),
                   decoration: InputDecoration(
                       icon: Icon(Icons.person, color: Colors.green),
-                      labelText: "Artista(s)",
+                      labelText: AppLocalizations.of(context).songartist,
                       labelStyle: TextStyle(
                         color: Colors.green,
                       )),
@@ -80,7 +81,7 @@ class _SongScreenState extends State<SongScreen> {
                   style: TextStyle(fontSize: 17.0, color: Colors.black),
                   decoration: InputDecoration(
                       icon: Icon(Icons.album, color: Colors.green),
-                      labelText: "Álbum",
+                      labelText: AppLocalizations.of(context).songalbum,
                       labelStyle: TextStyle(
                         color: Colors.green,
                       )),
@@ -95,7 +96,7 @@ class _SongScreenState extends State<SongScreen> {
                   decoration: InputDecoration(
                       icon:
                           Icon(Icons.access_time_rounded, color: Colors.green),
-                      labelText: "Duración",
+                      labelText: AppLocalizations.of(context).songduration,
                       labelStyle: TextStyle(
                         color: Colors.green,
                       )),
@@ -109,7 +110,7 @@ class _SongScreenState extends State<SongScreen> {
                   style: TextStyle(fontSize: 17.0, color: Colors.black),
                   decoration: InputDecoration(
                       icon: Icon(Icons.calendar_today, color: Colors.green),
-                      labelText: "Año",
+                      labelText: AppLocalizations.of(context).songyear,
                       labelStyle: TextStyle(
                         color: Colors.green,
                       )),
@@ -151,14 +152,14 @@ class _SongScreenState extends State<SongScreen> {
                     },
                     child: (widget.song.id != null)
                         ? Text(
-                            'Actualizar',
+                            AppLocalizations.of(context).btntoupdate,
                             style: TextStyle(
                                 color: Colors.green,
                                 fontSize: 20.0,
                                 fontWeight: FontWeight.bold),
                           )
                         : Text(
-                            'Agregar',
+                            AppLocalizations.of(context).btnadd,
                             style: TextStyle(
                                 color: Colors.green,
                                 fontSize: 20.0,

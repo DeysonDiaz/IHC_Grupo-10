@@ -9,12 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
+  flutter_localizations:
+    sdk: flutter
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   firebase_database: ^4.3.0
-  
 
 dev_dependencies:
   flutter_test:
@@ -22,7 +23,6 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
 
@@ -39,13 +39,10 @@ flutter:
     - assets/images/splash01.jpg
     - assets/images/splash02.jpg
   #   - images/a_dot_ham.jpeg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
@@ -65,8 +62,13 @@ flutter:
   fonts:
     - family: Montserrat
       fonts:
-          - asset: assets/Montserrat-Regular.ttf
-          - asset: assets/Montserrat-Bold.ttf
-            weight: 700  
+        - asset: assets/Montserrat-Regular.ttf
+        - asset: assets/Montserrat-Bold.ttf
+          weight: 700
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_intl:
+  enabled: true
+  main_locale: es_PE
+  class_name: AppLocalizations
+  

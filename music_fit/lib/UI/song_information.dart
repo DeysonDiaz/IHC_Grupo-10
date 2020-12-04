@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:music_fit/Model/song.dart';
+import 'package:music_fit/generated/l10n.dart';
 
 class SongInformation extends StatefulWidget {
   final Song song;
@@ -19,13 +20,14 @@ class _SongInformationState extends State<SongInformation> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    items = new List();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Información de la Canción'),
+        title: Text(AppLocalizations.of(context).information),
         backgroundColor: Colors.green,
       ),
       body: Container(
@@ -37,26 +39,31 @@ class _SongInformationState extends State<SongInformation> {
               children: <Widget>[
                 new Text(
                   "Nombre: ${widget.song.nombre}",
+                  //AppLocalizations.of(context).songinformationname(widget.song.nombre),
                   style: TextStyle(color: Colors.green, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Artista: ${widget.song.artista}",
+                  //AppLocalizations.of(context).songinformationartist(widget.song.artista),
                   style: TextStyle(color: Colors.green, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Álbum: ${widget.song.album}",
-                  style: TextStyle(color: Colors.green, fontSize: 18.0),
-                ),
-                Divider(),
-                new Text(
-                  "Año: ${widget.song.anio}",
+                  //AppLocalizations.of(context).songinformationalbum(widget.song.album),
                   style: TextStyle(color: Colors.green, fontSize: 18.0),
                 ),
                 Divider(),
                 new Text(
                   "Duración: ${widget.song.duracion}",
+                  //AppLocalizations.of(context).songinformationduration(widget.song.duracion),
+                  style: TextStyle(color: Colors.green, fontSize: 18.0),
+                ),
+                Divider(),
+                new Text(
+                  "Año: ${widget.song.anio}",
+                  //AppLocalizations.of(context) .songinformationyear(widget.song.anio),
                   style: TextStyle(color: Colors.green, fontSize: 18.0),
                 ),
                 Divider(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_fit/generated/l10n.dart';
 
 class RecoveryPage extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
                     Container(
                       padding: EdgeInsets.fromLTRB(25, 50, 25, 0),
                       child: Text(
-                        'Recuperar contraseña',
+                        AppLocalizations.of(context).recovery,
                         style: TextStyle(
                             fontSize: 50.0, fontWeight: FontWeight.bold),
                       ),
@@ -33,7 +34,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
                     Container(
                       padding: EdgeInsets.fromLTRB(25, 25, 25, 0),
                       child: Text(
-                        'Se envió un código de recuperación a su correo.',
+                        AppLocalizations.of(context).text,
                         style: TextStyle(fontSize: 20),
                       ),
                     ),
@@ -46,7 +47,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
                     children: <Widget>[
                       TextField(
                         decoration: InputDecoration(
-                            labelText: 'CODIGO',
+                            labelText: AppLocalizations.of(context).code,
                             labelStyle: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
@@ -69,7 +70,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
                               onTap: () {},
                               child: Center(
                                 child: Text(
-                                  'Recuperar',
+                                  AppLocalizations.of(context).btnrecover,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -96,7 +97,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
                               Navigator.of(context).pop();
                             },
                             child: Center(
-                              child: Text('Atras',
+                              child: Text(AppLocalizations.of(context).btnback,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Montserrat')),

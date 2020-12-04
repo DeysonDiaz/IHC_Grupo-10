@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_fit/generated/l10n.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class _SignupPageState extends State<SignupPage> {
                     Container(
                       padding: EdgeInsets.only(top: 80, left: 70),
                       child: Text(
-                        'Registro',
+                        AppLocalizations.of(context).register,
                         style: TextStyle(
                             fontSize: 50.0, fontWeight: FontWeight.bold),
                       ),
@@ -43,7 +44,7 @@ class _SignupPageState extends State<SignupPage> {
                     children: <Widget>[
                       TextField(
                         decoration: InputDecoration(
-                            labelText: 'CORREO',
+                            labelText: AppLocalizations.of(context).email,
                             labelStyle: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
@@ -56,7 +57,7 @@ class _SignupPageState extends State<SignupPage> {
                       SizedBox(height: 10.0),
                       TextField(
                         decoration: InputDecoration(
-                            labelText: 'NOMBRE ',
+                            labelText: AppLocalizations.of(context).name,
                             labelStyle: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
@@ -67,7 +68,7 @@ class _SignupPageState extends State<SignupPage> {
                       SizedBox(height: 10.0),
                       TextField(
                         decoration: InputDecoration(
-                            labelText: 'CONTRASEÑA ',
+                            labelText: AppLocalizations.of(context).password,
                             labelStyle: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
@@ -89,7 +90,7 @@ class _SignupPageState extends State<SignupPage> {
                               onTap: () {},
                               child: Center(
                                 child: Text(
-                                  'Registrarse',
+                                  AppLocalizations.of(context).btnregister,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -116,7 +117,7 @@ class _SignupPageState extends State<SignupPage> {
                               Navigator.of(context).pop();
                             },
                             child: Center(
-                              child: Text('Atras',
+                              child: Text(AppLocalizations.of(context).btnback,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Montserrat')),

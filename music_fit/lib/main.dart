@@ -3,6 +3,8 @@ import 'signup.dart';
 import 'UI/listview_song.dart';
 import 'recovery.dart';
 import 'package:music_fit/UI/splash_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:music_fit/generated/l10n.dart';
 
 void main() => runApp(new MyApp());
 
@@ -16,8 +18,15 @@ class MyApp extends StatelessWidget {
         '/': (BuildContext context) => SplashScreen(),
         '/signup': (BuildContext context) => new SignupPage(),
         '/listview': (BuildContext context) => new ListViewSong(),
-        '/recovery': (BuildContext context) => new RecoveryPage()
+        '/recovery': (BuildContext context) => new RecoveryPage(),
       },
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        AppLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.delegate.supportedLocales,
     );
   }
 }
@@ -74,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   TextField(
                     decoration: InputDecoration(
-                        labelText: 'CORREO',
+                        labelText: AppLocalizations.of(context).email,
                         labelStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
@@ -85,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: 20.0),
                   TextField(
                     decoration: InputDecoration(
-                        labelText: 'CONTRASEÑA',
+                        labelText: AppLocalizations.of(context).password,
                         labelStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
@@ -104,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       child: Center(
                         child: Text(
-                          '¿Olvido su Contraseña.?',
+                          AppLocalizations.of(context).btnquestion,
                           style: TextStyle(
                               color: Colors.green,
                               fontWeight: FontWeight.bold,
@@ -128,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         },
                         child: Center(
                           child: Text(
-                            'Iniciar Sesion',
+                            AppLocalizations.of(context).btnlogin,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -146,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                '¿No tienes una cuenta?',
+                AppLocalizations.of(context).question2,
                 style: TextStyle(fontFamily: 'Montserrat'),
               ),
               SizedBox(width: 5.0),
@@ -155,7 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.of(context).pushNamed('/signup');
                 },
                 child: Text(
-                  'Registrate',
+                  AppLocalizations.of(context).btnregistration,
                   style: TextStyle(
                       color: Colors.green,
                       fontFamily: 'Montserrat',
