@@ -28,6 +28,7 @@ class _SongInformationState extends State<SongInformation> {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).information),
+
         backgroundColor: Colors.green,
       ),
       body: Container(
