@@ -51,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "informationduration" : m2,
     "informationname" : m3,
     "informationyear" : m4,
+    "language" : MessageLookupByLibrary.simpleMessage("Idioma"),
     "name" : MessageLookupByLibrary.simpleMessage("NOMBRE"),
     "password" : MessageLookupByLibrary.simpleMessage("CONTRASEÑA"),
     "question2" : MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
@@ -63,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "songname" : MessageLookupByLibrary.simpleMessage("Nombre"),
     "songs" : MessageLookupByLibrary.simpleMessage("Canciones"),
     "songyear" : MessageLookupByLibrary.simpleMessage("Año"),
+    "systemLanguage" : MessageLookupByLibrary.simpleMessage("Idioma del sistema"),
     "text" : MessageLookupByLibrary.simpleMessage("Se envió un código de recuperación a su correo")
   };
 }

@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "btntoupdate" : MessageLookupByLibrary.simpleMessage("Atualizar"),
     "code" : MessageLookupByLibrary.simpleMessage("CÓDIGO"),
     "email" : MessageLookupByLibrary.simpleMessage("CORREIO"),
+    "language" : MessageLookupByLibrary.simpleMessage("Língua"),
     "name" : MessageLookupByLibrary.simpleMessage("NOME"),
     "password" : MessageLookupByLibrary.simpleMessage("SENHA"),
     "question2" : MessageLookupByLibrary.simpleMessage("Você não tem uma conta?"),
@@ -47,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "songname" : MessageLookupByLibrary.simpleMessage("Nome"),
     "songs" : MessageLookupByLibrary.simpleMessage("Canções"),
     "songyear" : MessageLookupByLibrary.simpleMessage("Ano"),
+    "systemLanguage" : MessageLookupByLibrary.simpleMessage("Linguagem do sistema"),
     "text" : MessageLookupByLibrary.simpleMessage("Um código de recuperação foi enviado para seu e-mail")
   };
 }

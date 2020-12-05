@@ -20,14 +20,13 @@ class _SongInformationState extends State<SongInformation> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    items = new List();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Información de la Aplicación'),
+        title: Text('Informacion de la Canción'),
         backgroundColor: Colors.green,
       ),
       body: Container(

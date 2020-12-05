@@ -35,5 +35,8 @@
     "songinformationartist": "Artist: {artist}",
     "songinformationalbum": "Album: {album}",
     "songinformationduration": "Duration: {duration}",
-    "songinformationyear": "Year: {year}"
+    "songinformationyear": "Year: {year}",
+
+    "language": "Language",
+    "systemLanguage": "System language"
 }
