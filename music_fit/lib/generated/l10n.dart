@@ -364,6 +364,26 @@ class AppLocalizations {
       args: [year],
     );
   }
+
+  /// `Idioma`
+  String get language {
+    return Intl.message(
+      'Idioma',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Idioma del sistema`
+  String get systemLanguage {
+    return Intl.message(
+      'Idioma del sistema',
+      name: 'systemLanguage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -35,5 +35,8 @@
     "informationartist": "Artista: {artist}",
     "informationalbum": "Álbum: {album}",
     "informationduration": "Duración: {duration}",
-    "informationyear": "Año: {year}"
+    "informationyear": "Año: {year}",
+
+    "language": "Idioma",
+    "systemLanguage": "Idioma del sistema"
 }

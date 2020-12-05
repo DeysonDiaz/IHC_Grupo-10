@@ -1,32 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:music_fit/language.dart';
 import 'signup.dart';
 import 'UI/listview_song.dart';
 import 'recovery.dart';
 import 'package:music_fit/UI/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:music_fit/generated/l10n.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_fit/blocs/preferences_bloc.dart';
+import 'package:music_fit/repositories/preferences_repository_impl.dart';
+import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
-void main() => runApp(new MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final preferencesRepository = PreferencesRepositoryImpl();
+
+  final preferencesBloc = PreferencesBloc(
+    preferencesRepository: preferencesRepository,
+    initialLocale: await preferencesRepository.locale,
+  );
+
+  runApp(
+    BlocProvider(
+      create: (context) => preferencesBloc,
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: <String, WidgetBuilder>{
-        '/': (BuildContext context) => SplashScreen(),
-        '/signup': (BuildContext context) => new SignupPage(),
-        '/listview': (BuildContext context) => new ListViewSong(),
-        '/recovery': (BuildContext context) => new RecoveryPage(),
+    return BlocBuilder<PreferencesBloc, PreferencesState>(
+      builder: (context, state) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          initialRoute: '/',
+          routes: <String, WidgetBuilder>{
+            '/': (BuildContext context) => SplashScreen(),
+            '/language': (BuildContext context) => Language(),
+            '/signup': (BuildContext context) => new SignupPage(),
+            '/listview': (BuildContext context) => new ListViewSong(),
+            '/recovery': (BuildContext context) => new RecoveryPage(),
+          },
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            AppLocalizations.delegate,
+            LocaleNamesLocalizationsDelegate(),
+          ],
+          supportedLocales: AppLocalizations.delegate.supportedLocales,
+          locale: state.locale,
+        );
       },
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        AppLocalizations.delegate,
-      ],
-      supportedLocales: AppLocalizations.delegate.supportedLocales,
     );
   }
 }

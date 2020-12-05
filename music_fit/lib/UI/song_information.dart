@@ -20,7 +20,6 @@ class _SongInformationState extends State<SongInformation> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    items = new List();
   }
 
   @override
