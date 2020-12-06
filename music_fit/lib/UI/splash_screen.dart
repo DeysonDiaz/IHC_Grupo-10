@@ -1,4 +1,3 @@
-import 'package:music_fit/main.dart';
 import 'package:flutter/material.dart';
 import 'package:music_fit/language.dart';
 
