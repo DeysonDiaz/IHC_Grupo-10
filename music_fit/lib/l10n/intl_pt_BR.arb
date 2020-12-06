@@ -37,6 +37,8 @@
     "songinformationduration": "Duração: {duration}",
     "songinformationyear": "Ano: {year}",
 
+    "Continue": "Continuar",
+    "selectionlanguage": "Selecione sua lingua",
     "language": "Língua",
     "systemLanguage": "Linguagem do sistema"
 

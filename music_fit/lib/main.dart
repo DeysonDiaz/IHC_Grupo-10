@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           initialRoute: '/',
           routes: <String, WidgetBuilder>{
             '/': (BuildContext context) => SplashScreen(),
-            '/language': (BuildContext context) => Language(),
+            '/language': (BuildContext context) => new Language(),
             '/signup': (BuildContext context) => new SignupPage(),
             '/listview': (BuildContext context) => new ListViewSong(),
             '/recovery': (BuildContext context) => new RecoveryPage(),
