@@ -21,6 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "Continue" : MessageLookupByLibrary.simpleMessage("Continuar"),
     "alert" : MessageLookupByLibrary.simpleMessage("Alerta"),
     "alertquestion" : MessageLookupByLibrary.simpleMessage("Você quer deletar esta música?"),
     "btnadd" : MessageLookupByLibrary.simpleMessage("Adicionar"),
@@ -41,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "question2" : MessageLookupByLibrary.simpleMessage("Você não tem uma conta?"),
     "recovery" : MessageLookupByLibrary.simpleMessage("Recuperar senha"),
     "register" : MessageLookupByLibrary.simpleMessage("Registro"),
+    "selectionlanguage" : MessageLookupByLibrary.simpleMessage("Selecione sua lingua"),
     "song" : MessageLookupByLibrary.simpleMessage("Canção"),
     "songalbum" : MessageLookupByLibrary.simpleMessage("Álbum"),
     "songartist" : MessageLookupByLibrary.simpleMessage("Artista(s)"),

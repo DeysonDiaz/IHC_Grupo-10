@@ -365,6 +365,26 @@ class AppLocalizations {
     );
   }
 
+  /// `Continuar`
+  String get Continue {
+    return Intl.message(
+      'Continuar',
+      name: 'Continue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Seleccione su idioma`
+  String get selectionlanguage {
+    return Intl.message(
+      'Seleccione su idioma',
+      name: 'selectionlanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Idioma`
   String get language {
     return Intl.message(
