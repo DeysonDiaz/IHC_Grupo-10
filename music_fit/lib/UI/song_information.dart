@@ -26,12 +26,7 @@ class _SongInformationState extends State<SongInformation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-<<<<<<< HEAD
         title: Text("Informacion de la Canción"),
-
-=======
-        title: Text('Informacion de la Canción'),
->>>>>>> 94d1ee6dd8b8ba80e79c014647ea82f4d68d01c6
         backgroundColor: Colors.green,
       ),
       body: Container(
