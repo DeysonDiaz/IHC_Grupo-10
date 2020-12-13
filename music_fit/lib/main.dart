@@ -10,6 +10,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_fit/blocs/preferences_bloc.dart';
 import 'package:music_fit/repositories/preferences_repository_impl.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
+import 'package:music_fit/graphics/grafica1.dart';
+import 'package:music_fit/graphics/grafica2.dart';
+import 'package:music_fit/graphics/grafica3.dart';
+import 'package:music_fit/graphics/grafica4.dart';
+import 'package:music_fit/graphics/grafica5.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,11 +43,16 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialRoute: '/',
           routes: <String, WidgetBuilder>{
-            '/': (BuildContext context) => SplashScreen(),
+            '/': (BuildContext context) => new SplashScreen(),
             '/language': (BuildContext context) => new Language(),
             '/signup': (BuildContext context) => new SignupPage(),
             '/listview': (BuildContext context) => new ListViewSong(),
             '/recovery': (BuildContext context) => new RecoveryPage(),
+            '/grafica1': (BuildContext context) => new GeneralStats(),
+            '/grafica2': (BuildContext context) => new ExerciseType(),
+            '/grafica3': (BuildContext context) => new SongsGraphics(),
+            '/grafica4': (BuildContext context) => new SongsGraphics2(),
+            '/grafica5': (BuildContext context) => new SongsGraphics3(),
           },
           localizationsDelegates: [
             GlobalMaterialLocalizations.delegate,

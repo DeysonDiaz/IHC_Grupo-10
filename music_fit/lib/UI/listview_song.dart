@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:async';
@@ -54,6 +55,60 @@ class _ListViewSongState extends State<ListViewSong> {
               onPressed: () => _login(context),
             )
           ],
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                ),
+                accountName: Text("Test"),
+                accountEmail: Text("test_email@example.com"),
+                currentAccountPicture: CircleAvatar(
+                    backgroundColor: Colors.purple,
+                    child: Text("T",
+                        style: TextStyle(
+                          fontSize: 40,
+                        ))),
+              ),
+              ListTile(
+                title: Text("Estadísticas generales"),
+                leading: Icon(Icons.bar_chart),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/grafica1');
+                },
+              ),
+              ListTile(
+                title: Text("Tipo de ejercicio"),
+                leading: Icon(Icons.pie_chart),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/grafica2'); 
+                },
+              ),
+              ListTile(
+                title: Text("Cancion mas escuchada"),
+                leading: Icon(Icons.library_music_outlined),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/grafica3');
+                },
+              ),
+              ListTile(
+                title: Text("Uso de la Aplicación"),
+                leading: Icon(Icons.mobile_screen_share),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/grafica4');
+                },
+              ),
+              ListTile(
+                title: Text("Calorias quemadas"),
+                leading: Icon(Icons.directions_run),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/grafica5');
+                },
+              ),
+            ],
+          ),
         ),
         body: Center(
           child: ListView.builder(
